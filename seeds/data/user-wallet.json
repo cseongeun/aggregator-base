@@ -1,0 +1,11 @@
+[
+  {
+    "status": 1,
+    "createdAt": "2021-11-10 11:01:41.591643",
+    "updatedAt": "2021-11-10 11:21:57.345398",
+    "deletedAt": null,
+    "id": 1,
+    "user": 1,
+    "alias": "main"
+  }
+]

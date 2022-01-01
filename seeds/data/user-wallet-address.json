@@ -1,0 +1,12 @@
+[
+  {
+    "status": 1,
+    "createdAt": "2021-11-10 11:02:12.681382",
+    "updatedAt": "2021-11-10 11:02:12.681382",
+    "deletedAt": null,
+    "id": 1,
+    "alias": "dev",
+    "address": "0xFDcBF476B286796706e273F86aC51163DA737FA8",
+    "walletId": 1
+  }
+]
