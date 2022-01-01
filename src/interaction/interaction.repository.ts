@@ -20,7 +20,6 @@ export class InteractionRepository extends RepositoryBase<Interaction> {
   relations: string[] = Interaction.relations;
   recursiveRelations: string[] = Interaction.recursiveRelations;
 
-
   async _search(params: any): Promise<any[]> {
     const queryBuilder = this.createQueryBuilder('interaction');
 
@@ -49,7 +48,7 @@ export class InteractionRepository extends RepositoryBase<Interaction> {
 
     const result = await queryBuilder.getRawMany();
 
-    return result.map(r => r[distinct.replace('.', '_')]);
+    return result.map((r) => r[distinct.replace('.', '_')]);
   }
 
   _searchQueryBuilder(

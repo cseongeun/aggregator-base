@@ -65,7 +65,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
     params: DeepPartial<T>[],
     @TransactionManager() manager?: EntityManager,
   ): Promise<T[]> {
-    const createEntities = params.map(param => this.create(param));
+    const createEntities = params.map((param) => this.create(param));
 
     if (manager) {
       return manager.save(this.entity, createEntities);
@@ -85,7 +85,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
       queryBuilder = this.createQueryBuilder();
     }
 
-    const createEntities = params.map(param => this.create(param));
+    const createEntities = params.map((param) => this.create(param));
 
     return queryBuilder
       .insert()

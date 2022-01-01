@@ -36,7 +36,7 @@ export class TokenRepository extends RepositoryBase<Token> {
 
     const result = await queryBuilder.getRawMany();
 
-    return result.map(r => r[distinct.replace('.', '_')]);
+    return result.map((r) => r[distinct.replace('.', '_')]);
   }
 
   private _searchQueryBuilder(

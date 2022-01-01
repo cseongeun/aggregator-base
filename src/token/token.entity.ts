@@ -45,24 +45,16 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column('decimal', { precision: 65, scale: 22, default: 0 })
   totalSupply: string;
 
-  @ManyToOne(
-    () => Token,
-    token => token.pair0,
-    {
-      nullable: true,
-      onDelete: 'CASCADE',
-    },
-  )
+  @ManyToOne(() => Token, (token) => token.pair0, {
+    nullable: true,
+    onDelete: 'CASCADE',
+  })
   pair0: Token;
 
-  @ManyToOne(
-    () => Token,
-    token => token.pair1,
-    {
-      nullable: true,
-      onDelete: 'CASCADE',
-    },
-  )
+  @ManyToOne(() => Token, (token) => token.pair1, {
+    nullable: true,
+    onDelete: 'CASCADE',
+  })
   pair1: Token;
 
   @Column({ nullable: true })

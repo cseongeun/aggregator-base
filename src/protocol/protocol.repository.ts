@@ -54,7 +54,7 @@ export class ProtocolRepository extends RepositoryBase<Protocol> {
     queryBuilder.distinct(true).select(distinct);
 
     const result = await queryBuilder.getRawMany();
-    return result.map(r => r[distinct.replace('.', '_')]);
+    return result.map((r) => r[distinct.replace('.', '_')]);
   }
 
   /**

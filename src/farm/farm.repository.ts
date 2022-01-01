@@ -36,7 +36,7 @@ export class FarmRepository extends RepositoryBase<Farm> {
 
     const result = await queryBuilder.getRawMany();
 
-    return result.map(r => r[distinct.replace('.', '_')]);
+    return result.map((r) => r[distinct.replace('.', '_')]);
   }
 
   _searchQueryBuilder(
