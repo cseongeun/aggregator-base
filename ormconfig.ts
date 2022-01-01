@@ -1,6 +1,7 @@
-import { Table } from 'typeorm';
+import 'dotenv/config';
+import { Table } from 'typeorm/';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
-import * as crypto from 'crypto';
+import { createHash } from '@seongeun/aggregator-util/lib/crypto';
 
 export class ConstraintSnakeNamingStrategy extends SnakeNamingStrategy {
   constructor() {
@@ -27,20 +28,17 @@ export class ConstraintSnakeNamingStrategy extends SnakeNamingStrategy {
       `${tableOrName}_${referencedTablePath}`,
     );
 
-    return `fk_${crypto
-      .createHash('md5')
-      .update(name)
-      .digest('hex')}`;
+    return `fk_${createHash('md5', name)}`;
   }
 }
 
-module.exports = {
-  type: '',
-  host: '',
-  port: 3306,
-  username: '',
-  password: '',
-  database: '',
+export default {
+  type: 'mysql',
+  host: process.env.MYSQL_HOST,
+  port: process.env.MYSQL_PORT,
+  username: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
   synchronize: false,
   logging: false,
   autoLoadEntities: true,
@@ -54,7 +52,7 @@ module.exports = {
   migrations: ['migrations/*.ts'],
   cli: {
     migrationsDir: 'migrations',
-    subscribersDir: 'subscriber',
+    subscribersDir: 'subscribers',
   },
   seeds: ['seeds/**/*.ts'],
 };

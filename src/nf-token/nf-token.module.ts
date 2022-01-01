@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { NfTokenService } from './nf-token.service';
+import { NFTokenRepository } from '..';
+import { NFTokenService } from './nf-token.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([NfTokenService])],
-  providers: [NfTokenService],
-  exports: [NfTokenService],
+  imports: [TypeOrmModule.forFeature([NFTokenRepository])],
+  providers: [NFTokenService],
+  exports: [NFTokenService],
 })
-export class NfTokenModule {}
+export class NFTokenModule {}

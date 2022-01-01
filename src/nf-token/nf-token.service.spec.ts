@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { NfTokenService } from './nf-token.service';
+import { NFTokenService } from './nf-token.service';
 
-describe('NfTokenService', () => {
-  let service: NfTokenService;
+describe('NfTokenNFTokenServiceService', () => {
+  let service: NFTokenService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [NfTokenService],
+      providers: [NFTokenService],
     }).compile();
 
-    service = module.get<NfTokenService>(NfTokenService);
+    service = module.get<NFTokenService>(NFTokenService);
   });
 
   it('should be defined', () => {

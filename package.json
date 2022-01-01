@@ -1,9 +1,12 @@
 {
   "name": "@seongeun/aggregator-base",
-  "version": "0.0.2",
+  "version": "0.0.9",
   "description": "Aggregator base",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cseongeun/aggregator-base"
@@ -26,7 +29,9 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
-    "@seongeun/aggregator-util": "^1.0.7",
+    "@seongeun/aggregator-util": "../aggregator-util",
+    "@terra-money/terra.js": "^3.0.2",
+    "ethers": "^5.5.2",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -40,10 +45,11 @@
     "@nestjs/testing": "^8.0.0",
     "@types/express": "^4.17.13",
     "@types/jest": "27.0.2",
-    "@types/node": "^16.0.0",
+    "@types/node": "^16.11.17",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "dotenv": "^10.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
