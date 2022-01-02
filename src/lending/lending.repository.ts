@@ -1,91 +1,124 @@
-import { EntityRepository, EntityTarget, SelectQueryBuilder } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
+import {
+  EntityRepository,
+  EntityTarget,
+  Repository,
+  DeepPartial,
+  EntityManager,
+  FindManyOptions,
+  FindOperator,
+  TransactionManager,
+  UpdateResult,
+  InsertResult,
+  SelectQueryBuilder,
+  DeleteResult,
+} from 'typeorm';
 import { Lending } from './lending.entity';
+import { RepositoryBase } from '../repository.base';
 
 @EntityRepository(Lending)
-export class LendingRepository extends RepositoryBase<Lending> {
+export class LendingRepository extends Repository<Lending> {
   entity: EntityTarget<Lending> = Lending;
   relations: string[] = Lending.relations;
   recursiveRelations: string[] = Lending.recursiveRelations;
 
-  async _search(params: any): Promise<any[]> {
-    const queryBuilder = this.createQueryBuilder('lending');
+  async findOneBy(
+    where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Lending> {
+    const options: FindManyOptions<Lending> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    if (params.skipItems) {
-      queryBuilder.offset(params.skipItems);
+    if (manager) {
+      return manager.findOne(this.entity, options);
     }
-
-    if (params.limit) {
-      queryBuilder.limit(params.limit);
-    }
-
-    queryBuilder.select(Lending.select);
-
-    const result = await queryBuilder.disableEscaping().getMany();
-    return result;
+    return this.findOne(options);
   }
 
-  async _searchDistinct(params: any, distinct: string): Promise<string[]> {
-    const queryBuilder = this.createQueryBuilder('lending');
+  async findAllBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Lending[]> {
+    const options: FindManyOptions<Lending> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    queryBuilder.distinct(true).select(distinct);
-
-    const result = await queryBuilder.getRawMany();
-
-    return result.map((r) => r[distinct.replace('.', '_')]);
+    if (manager) {
+      return manager.find(this.entity, options);
+    }
+    return this.find(options);
   }
 
-  _searchQueryBuilder(
-    queryBuilder: SelectQueryBuilder<Lending>,
-    params: any,
-  ): SelectQueryBuilder<Lending> {
-    Lending.relations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(`lending.${relation}`, relation);
-    });
+  async createOneBy(
+    params: DeepPartial<Lending>,
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Lending> {
+    const createEntity = this.create(params);
 
-    Lending.recursiveRelations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(relation, relation.replace('.', '_'));
-    });
+    if (manager) {
+      return manager.save(this.entity, createEntity);
+    }
+    return this.save(createEntity);
+  }
 
-    queryBuilder.andWhere('protocol.status = true');
-    queryBuilder.andWhere('lending.status = true');
+  async createAllBy(
+    params: DeepPartial<Lending>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Lending[]> {
+    const createEntities = params.map((param) => this.create(param));
 
-    if (params.id) {
-      queryBuilder.andWhere('lending.id = :id', { id: params.id });
+    if (manager) {
+      return manager.save(this.entity, createEntities);
+    }
+    return this.save(createEntities);
+  }
+
+  async createAllIfNotExistBy(
+    params: DeepPartial<Lending>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<InsertResult> {
+    let queryBuilder: SelectQueryBuilder<Lending>;
+
+    if (manager) {
+      queryBuilder = manager.createQueryBuilder();
+    } else {
+      queryBuilder = this.createQueryBuilder();
     }
 
-    if (params.ids) {
-      queryBuilder.andWhere('lending.id in (:ids)', { ids: params.ids });
-    }
+    const createEntities = params.map((param) => this.create(param));
 
-    if (params.protocolId) {
-      queryBuilder.andWhere('protocol.id = :protocolId', {
-        protocolId: params.protocolId,
-      });
-    }
+    return queryBuilder
+      .insert()
+      .into(this.target)
+      .values(createEntities)
+      .orIgnore()
+      .execute();
+  }
 
-    if (params.chainId) {
-      queryBuilder.andWhere('protocol_network.chainId = :chainId', {
-        chainId: params.chainId,
-      });
-    }
+  // async updateOneBy(
+  //   where: Lending[keyof Lending],
+  //   set: Lending[keyof Lending],
+  //   @TransactionManager() manager?: EntityManager,
+  // ): Promise<UpdateResult> {
+  //   if (manager) {
+  //     return manager.update(this.entity, where, set);
+  //   }
+  //   return this.update(where, set);
+  // }
 
-    if (params.address) {
-      queryBuilder.andWhere('lending.address = :address', {
-        address: params.address,
-      });
+  async deleteOneBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<DeleteResult> {
+    if (manager) {
+      return manager.delete(this.entity, where);
     }
-
-    if (params.address) {
-      queryBuilder.andWhere('lending.address in (:addresses)', {
-        addresses: params.addresses,
-      });
-    }
-
-    return queryBuilder;
+    return this.delete(where);
   }
 }

@@ -1,106 +1,124 @@
-import { EntityRepository, EntityTarget, SelectQueryBuilder } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
+import {
+  EntityRepository,
+  EntityTarget,
+  Repository,
+  DeepPartial,
+  EntityManager,
+  FindManyOptions,
+  FindOperator,
+  TransactionManager,
+  UpdateResult,
+  InsertResult,
+  SelectQueryBuilder,
+  DeleteResult,
+} from 'typeorm';
 import { NFToken } from './nf-token.entity';
+import { RepositoryBase } from '../repository.base';
 
 @EntityRepository(NFToken)
-export class NFTokenRepository extends RepositoryBase<NFToken> {
+export class NFTokenRepository extends Repository<NFToken> {
   entity: EntityTarget<NFToken> = NFToken;
   relations: string[] = NFToken.relations;
   recursiveRelations: string[] = NFToken.recursiveRelations;
 
-  async _search(params: any): Promise<any[]> {
-    const queryBuilder = this.createQueryBuilder('nfToken');
+  async findOneBy(
+    where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<NFToken> {
+    const options: FindManyOptions<NFToken> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    if (params.skipItems) {
-      queryBuilder.offset(params.skipItems);
+    if (manager) {
+      return manager.findOne(this.entity, options);
     }
-
-    if (params.limit) {
-      queryBuilder.limit(params.limit);
-    }
-
-    queryBuilder.select(NFToken.select);
-
-    const result = await queryBuilder.disableEscaping().getMany();
-    return result;
+    return this.findOne(options);
   }
 
-  /**
-   * 유니트 컬럼
-   * @param params nftoken search query params
-   * @param distinct column
-   * @returns
-   */
-  async _searchDistinct(params: any, distinct: string): Promise<string[]> {
-    const queryBuilder = this.createQueryBuilder('nfToken');
+  async findAllBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<NFToken[]> {
+    const options: FindManyOptions<NFToken> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    queryBuilder.distinct(true).select(distinct);
-
-    const result = await queryBuilder.getRawMany();
-
-    return result.map((r) => r[distinct.replace('.', '_')]);
+    if (manager) {
+      return manager.find(this.entity, options);
+    }
+    return this.find(options);
   }
 
-  private _searchQueryBuilder(
-    queryBuilder: SelectQueryBuilder<NFToken>,
-    params: any,
-  ): SelectQueryBuilder<NFToken> {
-    NFToken.relations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(`nfToken.${relation}`, relation);
-    });
+  async createOneBy(
+    params: DeepPartial<NFToken>,
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<NFToken> {
+    const createEntity = this.create(params);
 
-    NFToken.recursiveRelations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(relation, relation.replace('.', '_'));
-    });
+    if (manager) {
+      return manager.save(this.entity, createEntity);
+    }
+    return this.save(createEntity);
+  }
 
-    queryBuilder.andWhere('protocol_network.status = true');
-    queryBuilder.andWhere('protocol.status = true');
-    queryBuilder.andWhere('nfToken.status = true');
+  async createAllBy(
+    params: DeepPartial<NFToken>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<NFToken[]> {
+    const createEntities = params.map((param) => this.create(param));
 
-    if (params.id) {
-      queryBuilder.andWhere('nfToken.id = :id', { id: params.id });
+    if (manager) {
+      return manager.save(this.entity, createEntities);
+    }
+    return this.save(createEntities);
+  }
+
+  async createAllIfNotExistBy(
+    params: DeepPartial<NFToken>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<InsertResult> {
+    let queryBuilder: SelectQueryBuilder<NFToken>;
+
+    if (manager) {
+      queryBuilder = manager.createQueryBuilder();
+    } else {
+      queryBuilder = this.createQueryBuilder();
     }
 
-    if (params.protocolId) {
-      queryBuilder.andWhere('protocol.id = :protocolId', {
-        protocolId: params.protocolId,
-      });
+    const createEntities = params.map((param) => this.create(param));
+
+    return queryBuilder
+      .insert()
+      .into(this.target)
+      .values(createEntities)
+      .orIgnore()
+      .execute();
+  }
+
+  // async updateOneBy(
+  //   where: NFToken[keyof NFToken],
+  //   set: NFToken[keyof NFToken],
+  //   @TransactionManager() manager?: EntityManager,
+  // ): Promise<UpdateResult> {
+  //   if (manager) {
+  //     return manager.update(this.entity, where, set);
+  //   }
+  //   return this.update(where, set);
+  // }
+
+  async deleteOneBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<DeleteResult> {
+    if (manager) {
+      return manager.delete(this.entity, where);
     }
-
-    if (params.chainId) {
-      queryBuilder.andWhere('protocol_network.chainId = :chainId', {
-        chainId: params.chainId,
-      });
-    }
-
-    if (params.address) {
-      queryBuilder.andWhere('nfToken.address = :address', {
-        address: params.address,
-      });
-    }
-
-    if (params.addresses && params.addresses.length > 0) {
-      queryBuilder.andWhere('nfToken.address in (:addresses)', {
-        addresses: params.addresses,
-      });
-    }
-
-    if (params.index) {
-      queryBuilder.andWhere('nfToken.index = :index', { index: params.index });
-    }
-
-    if (params.indexes && params.indexes.length > 0) {
-      console.log('herer');
-
-      queryBuilder.andWhere('nfToken.index in (:indexes)', {
-        indexes: params.indexes,
-      });
-    }
-
-    return queryBuilder;
+    return this.delete(where);
   }
 }

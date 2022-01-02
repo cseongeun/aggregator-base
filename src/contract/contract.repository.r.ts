@@ -12,20 +12,20 @@ import {
   SelectQueryBuilder,
   DeleteResult,
 } from 'typeorm';
-import { Network } from './network.entity';
+import { Contract } from './contract.entity';
 import { RepositoryBase } from '../repository.base';
 
-@EntityRepository(Network)
-export class NetworkRepository extends Repository<Network> {
-  entity: EntityTarget<Network> = Network;
-  relations: string[] = Network.relations;
-  recursiveRelations: string[] = Network.recursiveRelations;
+@EntityRepository(Contract)
+export class ContractRepository extends Repository<Contract> {
+  entity: EntityTarget<Contract> = Contract;
+  relations: string[] = Contract.relations;
+  recursiveRelations: string[] = Contract.recursiveRelations;
 
   async findOneBy(
     where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
     @TransactionManager() manager?: EntityManager,
-  ): Promise<Network> {
-    const options: FindManyOptions<Network> = {
+  ): Promise<Contract> {
+    const options: FindManyOptions<Contract> = {
       where,
       relations: [...this.relations, ...this.recursiveRelations],
     };
@@ -41,8 +41,8 @@ export class NetworkRepository extends Repository<Network> {
       [K in keyof any]?: any[K] | FindOperator<any[K]>;
     },
     @TransactionManager() manager?: EntityManager,
-  ): Promise<Network[]> {
-    const options: FindManyOptions<Network> = {
+  ): Promise<Contract[]> {
+    const options: FindManyOptions<Contract> = {
       where,
       relations: [...this.relations, ...this.recursiveRelations],
     };
@@ -54,9 +54,9 @@ export class NetworkRepository extends Repository<Network> {
   }
 
   async createOneBy(
-    params: DeepPartial<Network>,
+    params: DeepPartial<Contract>,
     @TransactionManager() manager?: EntityManager,
-  ): Promise<Network> {
+  ): Promise<Contract> {
     const createEntity = this.create(params);
 
     if (manager) {
@@ -66,9 +66,9 @@ export class NetworkRepository extends Repository<Network> {
   }
 
   async createAllBy(
-    params: DeepPartial<Network>[],
+    params: DeepPartial<Contract>[],
     @TransactionManager() manager?: EntityManager,
-  ): Promise<Network[]> {
+  ): Promise<Contract[]> {
     const createEntities = params.map((param) => this.create(param));
 
     if (manager) {
@@ -78,10 +78,10 @@ export class NetworkRepository extends Repository<Network> {
   }
 
   async createAllIfNotExistBy(
-    params: DeepPartial<Network>[],
+    params: DeepPartial<Contract>[],
     @TransactionManager() manager?: EntityManager,
   ): Promise<InsertResult> {
-    let queryBuilder: SelectQueryBuilder<Network>;
+    let queryBuilder: SelectQueryBuilder<Contract>;
 
     if (manager) {
       queryBuilder = manager.createQueryBuilder();
@@ -100,8 +100,8 @@ export class NetworkRepository extends Repository<Network> {
   }
 
   // async updateOneBy(
-  //   where: Network[keyof Network],
-  //   set: Network[keyof Network],
+  //   where: Contract[keyof Contract],
+  //   set: Contract[keyof Contract],
   //   @TransactionManager() manager?: EntityManager,
   // ): Promise<UpdateResult> {
   //   if (manager) {

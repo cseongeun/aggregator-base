@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { NFTokenRepository } from '..';
+import { NFTokenRepository } from './nf-token.repository';
 import { NFTokenService } from './nf-token.service';
 
 @Module({

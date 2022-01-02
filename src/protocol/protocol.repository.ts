@@ -1,119 +1,124 @@
 import {
-  EntityManager,
   EntityRepository,
   EntityTarget,
+  Repository,
+  DeepPartial,
+  EntityManager,
   FindManyOptions,
   FindOperator,
-  Repository,
-  SelectQueryBuilder,
   TransactionManager,
+  UpdateResult,
+  InsertResult,
+  SelectQueryBuilder,
+  DeleteResult,
 } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
 import { Protocol } from './protocol.entity';
+import { RepositoryBase } from '../repository.base';
 
 @EntityRepository(Protocol)
-export class ProtocolRepository extends RepositoryBase<Protocol> {
+export class ProtocolRepository extends Repository<Protocol> {
   entity: EntityTarget<Protocol> = Protocol;
   relations: string[] = Protocol.relations;
   recursiveRelations: string[] = Protocol.recursiveRelations;
 
-  /**
-   * 조회
-   * @param params protocolSearchQuery
-   * @returns Farm entities & total number
-   */
-  async _search(params: any): Promise<any[]> {
-    const queryBuilder = this.createQueryBuilder('protocol');
+  async findOneBy(
+    where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Protocol> {
+    const options: FindManyOptions<Protocol> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    if (params.skipItems) {
-      queryBuilder.offset(params.skipItems);
+    if (manager) {
+      return manager.findOne(this.entity, options);
     }
-
-    if (params.limit) {
-      queryBuilder.limit(params.limit);
-    }
-
-    queryBuilder.select(Protocol.select);
-
-    const result = await queryBuilder.disableEscaping().getMany();
-    return result;
+    return this.findOne(options);
   }
 
-  /**
-   * 유니크 컬럼
-   * @param params farm search query params
-   * @param distinct column
-   * @returns
-   */
-  async _searchDistinct(params: any, distinct: string): Promise<string[]> {
-    const queryBuilder = this.createQueryBuilder('protocol');
-    this._searchQueryBuilder(queryBuilder, params);
+  async findAllBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Protocol[]> {
+    const options: FindManyOptions<Protocol> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    queryBuilder.distinct(true).select(distinct);
-
-    const result = await queryBuilder.getRawMany();
-    return result.map((r) => r[distinct.replace('.', '_')]);
+    if (manager) {
+      return manager.find(this.entity, options);
+    }
+    return this.find(options);
   }
 
-  /**
-   * 조회 쿼리 빌더 만들기
-   * @param queryBuilder queryBuilder
-   * @param params
-   * @returns
-   */
-  private _searchQueryBuilder(
-    queryBuilder: SelectQueryBuilder<Protocol>,
-    params: any,
-  ): SelectQueryBuilder<Protocol> {
-    // relations
-    Protocol.relations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(`protocol.${relation}`, relation);
-    });
+  async createOneBy(
+    params: DeepPartial<Protocol>,
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Protocol> {
+    const createEntity = this.create(params);
 
-    // recursive relations
-    Protocol.recursiveRelations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(relation, relation.replace('.', '_'));
-    });
+    if (manager) {
+      return manager.save(this.entity, createEntity);
+    }
+    return this.save(createEntity);
+  }
 
-    queryBuilder.andWhere('protocol.status = true');
-    queryBuilder.andWhere('network.status = true');
+  async createAllBy(
+    params: DeepPartial<Protocol>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Protocol[]> {
+    const createEntities = params.map((param) => this.create(param));
 
-    if (params.id) {
-      queryBuilder.andWhere('protocol.id = :id', { id: params.id });
+    if (manager) {
+      return manager.save(this.entity, createEntities);
+    }
+    return this.save(createEntities);
+  }
+
+  async createAllIfNotExistBy(
+    params: DeepPartial<Protocol>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<InsertResult> {
+    let queryBuilder: SelectQueryBuilder<Protocol>;
+
+    if (manager) {
+      queryBuilder = manager.createQueryBuilder();
+    } else {
+      queryBuilder = this.createQueryBuilder();
     }
 
-    if (params.ids) {
-      queryBuilder.andWhere('protocol.id in (:ids)', {
-        ids: params.ids,
-      });
-    }
+    const createEntities = params.map((param) => this.create(param));
 
-    if (params.useDEX) {
-      queryBuilder.andWhere('protocol.useDex = :useDEX', {
-        useDEX: params.useDEX,
-      });
-    }
+    return queryBuilder
+      .insert()
+      .into(this.target)
+      .values(createEntities)
+      .orIgnore()
+      .execute();
+  }
 
-    if (params.useFarm) {
-      queryBuilder.andWhere('protocol.useFarm = :useFarm', {
-        useFarm: params.useFarm,
-      });
-    }
+  // async updateOneBy(
+  //   where: Protocol[keyof Protocol],
+  //   set: Protocol[keyof Protocol],
+  //   @TransactionManager() manager?: EntityManager,
+  // ): Promise<UpdateResult> {
+  //   if (manager) {
+  //     return manager.update(this.entity, where, set);
+  //   }
+  //   return this.update(where, set);
+  // }
 
-    if (params.useLending) {
-      queryBuilder.andWhere('protocol.useLending = :useLending', {
-        useLending: params.useLending,
-      });
+  async deleteOneBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<DeleteResult> {
+    if (manager) {
+      return manager.delete(this.entity, where);
     }
-
-    if (params.useNFT) {
-      queryBuilder.andWhere('protocol.useNFT = :useNFT', {
-        useNFT: params.useNFT,
-      });
-    }
-
-    return queryBuilder;
+    return this.delete(where);
   }
 }

@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "types": ["node"],
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -18,8 +17,7 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
+    "noFallthroughCasesInSwitch": false
   },  
-  "exclude": ["node_modules", "lib", "migrations/*", "seeds/*", "ormconfig.ts", "**/*spec.ts"]
-
+  "exclude": ["node_modules", "lib", "migrations/*", "seeds/*", "ormconfig.d.ts", "**/*spec.ts"]
 }

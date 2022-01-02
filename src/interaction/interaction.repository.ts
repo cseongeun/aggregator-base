@@ -1,94 +1,124 @@
 import {
-  DeepPartial,
-  DeleteResult,
-  EntityManager,
   EntityRepository,
   EntityTarget,
+  Repository,
+  DeepPartial,
+  EntityManager,
   FindManyOptions,
   FindOperator,
-  InsertResult,
-  Repository,
-  SelectQueryBuilder,
   TransactionManager,
+  UpdateResult,
+  InsertResult,
+  SelectQueryBuilder,
+  DeleteResult,
 } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
 import { Interaction } from './interaction.entity';
+import { RepositoryBase } from '../repository.base';
 
 @EntityRepository(Interaction)
-export class InteractionRepository extends RepositoryBase<Interaction> {
+export class InteractionRepository extends Repository<Interaction> {
   entity: EntityTarget<Interaction> = Interaction;
   relations: string[] = Interaction.relations;
   recursiveRelations: string[] = Interaction.recursiveRelations;
 
-  async _search(params: any): Promise<any[]> {
-    const queryBuilder = this.createQueryBuilder('interaction');
+  async findOneBy(
+    where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Interaction> {
+    const options: FindManyOptions<Interaction> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    if (params.skipItems) {
-      queryBuilder.offset(params.skipItems);
+    if (manager) {
+      return manager.findOne(this.entity, options);
     }
-
-    if (params.limit) {
-      queryBuilder.limit(params.limit);
-    }
-
-    queryBuilder.select(Interaction.select);
-
-    const result = await queryBuilder.disableEscaping().getMany();
-    return result;
+    return this.findOne(options);
   }
 
-  async _searchDistinct(params: any, distinct: string): Promise<any[]> {
-    const queryBuilder = this.createQueryBuilder('interaction');
+  async findAllBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Interaction[]> {
+    const options: FindManyOptions<Interaction> = {
+      where,
+      relations: [...this.relations, ...this.recursiveRelations],
+    };
 
-    this._searchQueryBuilder(queryBuilder, params);
-
-    queryBuilder.distinct(true).select(distinct);
-
-    const result = await queryBuilder.getRawMany();
-
-    return result.map((r) => r[distinct.replace('.', '_')]);
+    if (manager) {
+      return manager.find(this.entity, options);
+    }
+    return this.find(options);
   }
 
-  _searchQueryBuilder(
-    queryBuilder: SelectQueryBuilder<Interaction>,
-    params: any,
-  ): SelectQueryBuilder<Interaction> {
-    // relations
-    Interaction.relations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(`interaction.${relation}`, relation);
-    });
+  async createOneBy(
+    params: DeepPartial<Interaction>,
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Interaction> {
+    const createEntity = this.create(params);
 
-    // recursive relations
-    Interaction.recursiveRelations.forEach((relation: string) => {
-      queryBuilder.leftJoinAndSelect(relation, relation.replace('.', '_'));
-    });
+    if (manager) {
+      return manager.save(this.entity, createEntity);
+    }
+    return this.save(createEntity);
+  }
 
-    if (params.fromAddress) {
-      queryBuilder.andWhere('interaction.fromAddress = :fromAddress', {
-        fromAddress: params.fromAddress,
-      });
+  async createAllBy(
+    params: DeepPartial<Interaction>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<Interaction[]> {
+    const createEntities = params.map((param) => this.create(param));
+
+    if (manager) {
+      return manager.save(this.entity, createEntities);
+    }
+    return this.save(createEntities);
+  }
+
+  async createAllIfNotExistBy(
+    params: DeepPartial<Interaction>[],
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<InsertResult> {
+    let queryBuilder: SelectQueryBuilder<Interaction>;
+
+    if (manager) {
+      queryBuilder = manager.createQueryBuilder();
+    } else {
+      queryBuilder = this.createQueryBuilder();
     }
 
-    if (params.chainId) {
-      queryBuilder.andWhere('network.chainId = :chainId', {
-        chainId: params.chainId,
-      });
-    }
+    const createEntities = params.map((param) => this.create(param));
 
-    if (params.type) {
-      queryBuilder.andWhere('interaction.type = :type', {
-        type: params.type,
-      });
-    }
+    return queryBuilder
+      .insert()
+      .into(this.target)
+      .values(createEntities)
+      .orIgnore()
+      .execute();
+  }
 
-    if (params.types) {
-      queryBuilder.andWhere('interaction.type in (:types)', {
-        types: params.types,
-      });
-    }
+  // async updateOneBy(
+  //   where: Interaction[keyof Interaction],
+  //   set: Interaction[keyof Interaction],
+  //   @TransactionManager() manager?: EntityManager,
+  // ): Promise<UpdateResult> {
+  //   if (manager) {
+  //     return manager.update(this.entity, where, set);
+  //   }
+  //   return this.update(where, set);
+  // }
 
-    return queryBuilder;
+  async deleteOneBy(
+    where?: {
+      [K in keyof any]?: any[K] | FindOperator<any[K]>;
+    },
+    @TransactionManager() manager?: EntityManager,
+  ): Promise<DeleteResult> {
+    if (manager) {
+      return manager.delete(this.entity, where);
+    }
+    return this.delete(where);
   }
 }
