@@ -1,6 +1,6 @@
 import { EntityRepository, EntityTarget } from 'typeorm';
 import { Farm } from './farm.entity';
-import { RepositoryBase } from '../repository.base';
+import { RepositoryBase } from '../extension/repository.base';
 
 @EntityRepository(Farm)
 export class FarmRepository extends RepositoryBase<Farm> {

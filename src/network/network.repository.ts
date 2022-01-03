@@ -1,5 +1,5 @@
 import { EntityRepository, EntityTarget, SelectQueryBuilder } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
+import { RepositoryBase } from '../extension/repository.base';
 import { Network } from './network.entity';
 
 @EntityRepository(Network)

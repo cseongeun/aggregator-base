@@ -1,9 +1,7 @@
 {
   "name": "@seongeun/aggregator-base",
-  "version": "0.0.13",
+  "version": "0.0.18",
   "description": "Aggregator base",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
   "engines": {
     "node": ">=14.0.0"
   },

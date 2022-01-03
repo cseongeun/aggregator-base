@@ -4,7 +4,7 @@ import {
   In,
   SelectQueryBuilder,
 } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
+import { RepositoryBase } from '../extension/repository.base';
 import { Interaction } from './interaction.entity';
 
 @EntityRepository(Interaction)

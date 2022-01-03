@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { typeOrmConfig } from './src/database.base';
+import { typeOrmConfig } from './src/extension/database.base';
 
 export default {
   ...typeOrmConfig(

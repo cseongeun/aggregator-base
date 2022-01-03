@@ -1,5 +1,5 @@
 import { EntityRepository, EntityTarget } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
+import { RepositoryBase } from '../extension/repository.base';
 import { TokenPrice } from './token-price.entity';
 
 @EntityRepository(TokenPrice)

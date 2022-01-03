@@ -9,6 +9,7 @@ import {
 import { toCheckSumAddress } from '@seongeun/aggregator-util/lib/address';
 import { IdEntity, EmptyEntity } from '@seongeun/aggregator-util/lib/entity';
 import { Network } from '../network/network.entity';
+import { TContractAbi } from './contract.interface';
 
 @Entity()
 @Index('idx_contract_1', ['network', 'address'], { unique: true })
@@ -22,7 +23,7 @@ export class Contract extends IdEntity(EmptyEntity) {
   @Column('longtext')
   abi: string;
 
-  getABI(): unknown {
+  getABI(): TContractAbi {
     return JSON.parse(JSON.stringify(this.abi));
   }
 

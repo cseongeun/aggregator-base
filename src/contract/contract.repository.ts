@@ -1,6 +1,6 @@
 import { EntityRepository, EntityTarget } from 'typeorm';
 import { Contract } from './contract.entity';
-import { RepositoryBase } from '../repository.base';
+import { RepositoryBase } from '../extension/repository.base';
 
 @EntityRepository(Contract)
 export class ContractRepository extends RepositoryBase<Contract> {

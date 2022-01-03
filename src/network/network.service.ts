@@ -4,9 +4,9 @@ import { ethers } from 'ethers';
 import { NETWORK_CHAIN_TYPE } from './network.constant';
 import { Network } from './network.entity';
 import {
-  AggregatorProvider,
-  AggregatorProviders,
-  ExtendNetworkProvider,
+  TAggregatorProvider,
+  TAggregatorProviders,
+  IExtendNetworkProvider,
 } from './network.interface';
 import { NetworkRepository } from './network.repository';
 import { randomPick } from '@seongeun/aggregator-util/lib/array';
@@ -15,7 +15,7 @@ import { randomPick } from '@seongeun/aggregator-util/lib/array';
 export class NetworkService {
   public networkWithProviderByChainKey = new Map<
     string,
-    ExtendNetworkProvider
+    IExtendNetworkProvider
   >();
 
   constructor(public readonly repository: NetworkRepository) {}
@@ -37,7 +37,7 @@ export class NetworkService {
    * @param chainKey chainKey
    * @returns Random Network Provider
    */
-  provider(chainKey: string): AggregatorProvider {
+  provider(chainKey: string): TAggregatorProvider {
     return randomPick(this.providers(chainKey));
   }
 
@@ -46,7 +46,7 @@ export class NetworkService {
    * @param chainId chainId
    * @returns Network's Providers
    */
-  providers(chainKey: string): AggregatorProviders {
+  providers(chainKey: string): TAggregatorProviders {
     return this.networkWithProviderByChainKey.get(chainKey).providers;
   }
 
@@ -64,8 +64,8 @@ export class NetworkService {
    * @param network Network Entity
    * @returns Network providers
    */
-  generateNetworkProviders(network: Network): AggregatorProviders {
-    const providers: AggregatorProviders = [];
+  generateNetworkProviders(network: Network): TAggregatorProviders {
+    const providers: TAggregatorProviders = [];
 
     const { chainType, chainId } = network;
 

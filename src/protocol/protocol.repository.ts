@@ -8,7 +8,7 @@ import {
   SelectQueryBuilder,
   TransactionManager,
 } from 'typeorm';
-import { RepositoryBase } from '../repository.base';
+import { RepositoryBase } from '../extension/repository.base';
 import { Protocol } from './protocol.entity';
 
 @EntityRepository(Protocol)

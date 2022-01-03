@@ -2,10 +2,10 @@ import { Network } from './network.entity';
 import { Provider } from '@ethersproject/providers';
 import { LCDClient } from '@terra-money/terra.js';
 
-export type AggregatorProvider = LCDClient | Provider;
+export type TAggregatorProvider = LCDClient | Provider;
 
-export type AggregatorProviders = Array<AggregatorProvider>;
+export type TAggregatorProviders = Array<TAggregatorProvider>;
 
-export interface ExtendNetworkProvider extends Network {
-  providers: AggregatorProviders;
+export interface IExtendNetworkProvider extends Network {
+  providers: TAggregatorProviders;
 }
