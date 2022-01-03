@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FarmRepository } from './farm.repository.r';
+import { FarmRepository } from './farm.repository';
 import { FarmService } from './farm.service';
 
 @Module({

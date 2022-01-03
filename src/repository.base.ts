@@ -16,6 +16,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
   abstract entity: EntityTarget<T>;
   abstract relations: string[];
   abstract recursiveRelations: string[];
+  abstract select: string[];
 
   async findOneBy(
     where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },

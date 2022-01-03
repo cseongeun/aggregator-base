@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { ContractRepository } from './contract.repository.r';
+import { Inject, Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { ContractRepository } from './contract.repository';
 
 @Injectable()
 export class ContractService {
-  constructor(public readonly repository: ContractRepository) {}
+  constructor(public repository: ContractRepository) {}
 }

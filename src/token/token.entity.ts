@@ -17,6 +17,7 @@ import {
 } from '@seongeun/aggregator-util/lib/entity';
 import { TOKEN_TYPE } from './token.constant';
 import { Network } from '../network/network.entity';
+import { TokenPrice } from '../token-price/token-price.entity';
 
 @Entity()
 @Index('idx_token_1', ['network', 'address'], { unique: true })
@@ -58,15 +59,6 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   pair1: Token;
 
   @Column({ nullable: true })
-  priceAddress: string;
-
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
-  priceValue: string;
-
-  @Column('json', { nullable: true })
-  beforeDayPriceValue: string;
-
-  @Column({ nullable: true })
   logoLink: string;
 
   @Column({ default: false })
@@ -79,6 +71,12 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @JoinColumn()
   wrapped: Token;
 
+  @OneToOne(() => TokenPrice, {
+    nullable: true,
+    onDelete: 'CASCADE',
+  })
+  tokenPrice: TokenPrice;
+
   @BeforeUpdate()
   @BeforeInsert()
   checkInsert(): void {
@@ -87,7 +85,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     }
   }
 
-  static relations = ['network', 'pair0', 'pair1', 'wrapped'];
+  static relations = ['network', 'pair0', 'pair1', 'wrapped', 'tokenPrice'];
 
   static recursiveRelations = [];
 
@@ -98,9 +96,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'token.decimals',
     'token.address',
     'token.totalSupply',
-    'token.priceValue',
     'token.logoLink',
-    'token.beforeDayPriceValue',
 
     'network.name',
     'network.subName',
@@ -134,5 +130,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'wrapped.decimals',
     'wrapped.priceValue',
     'wrapped.logoLink',
+
+    'tokenPrice.value',
   ];
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { FarmRepository } from './farm.repository.r';
+import { FarmRepository } from './farm.repository';
 
 @Injectable()
 export class FarmService {

@@ -7,4 +7,5 @@ export class ContractRepository extends RepositoryBase<Contract> {
   entity: EntityTarget<Contract> = Contract;
   relations: string[] = Contract.relations;
   recursiveRelations: string[] = Contract.recursiveRelations;
+  select: string[] = Contract.select;
 }

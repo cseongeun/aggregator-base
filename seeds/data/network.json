@@ -1,6 +1,6 @@
 [
   {
-    "status": 0,
+    "status": false,
     "createdAt": "2021-10-14 11:11:00.088000",
     "updatedAt": "2021-12-21 18:21:25.243338",
     "deletedAt": null,
@@ -34,7 +34,7 @@
     "logoLink": "network-binance"
   },
   {
-    "status": 0,
+    "status": false,
     "createdAt": "2021-10-14 11:11:00.099000",
     "updatedAt": "2021-12-21 18:21:25.237331",
     "deletedAt": null,
@@ -68,7 +68,7 @@
     "logoLink": "network-polygon"
   },
   {
-    "status": 0,
+    "status": false,
     "createdAt": "2021-10-14 11:11:00.103000",
     "updatedAt": "2021-12-21 18:21:25.192740",
     "deletedAt": null,
@@ -153,7 +153,7 @@
     "logoLink": "network-avalanche"
   },
   {
-    "status": 0,
+    "status": false,
     "createdAt": "2021-12-21 18:06:07.052728",
     "updatedAt": "2021-12-22 12:13:25.277987",
     "deletedAt": null,

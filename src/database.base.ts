@@ -32,27 +32,30 @@ export class ConstraintSnakeNamingStrategy extends SnakeNamingStrategy {
   }
 }
 
-export default {
-  type: 'mysql',
-  host: process.env.MYSQL_HOST,
-  port: process.env.MYSQL_PORT,
-  username: process.env.MYSQL_USERNAME,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  synchronize: false,
-  logging: false,
-  autoLoadEntities: true,
-  extra: {
-    connectionLimit: 100,
-  },
-  charset: 'utf8mb4',
-  namingStrategy: new ConstraintSnakeNamingStrategy(),
-  entities: ['src/**/*.entity.ts'],
-  subscribers: ['src/**/*.subscribe.ts'],
-  migrations: ['migrations/*.ts'],
-  cli: {
-    migrationsDir: 'migrations',
-    subscribersDir: 'subscribers',
-  },
-  seeds: ['seeds/**/*.ts'],
+export const typeOrmConfig = (
+  type = 'mysql',
+  host: string,
+  port: string,
+  username: string,
+  password: string,
+  database: string,
+) => {
+  return {
+    type,
+    host,
+    port: parseInt(port, 10),
+    username,
+    password,
+    database,
+    synchronize: false,
+    logging: false,
+    autoLoadEntities: true,
+    extra: {
+      connectionLimit: 100,
+    },
+    charset: 'utf8mb4',
+    namingStrategy: new ConstraintSnakeNamingStrategy(),
+    entities: ['src/**/*.entity.ts'],
+    subscribers: ['src/**/*.subscribe.ts'],
+  };
 };

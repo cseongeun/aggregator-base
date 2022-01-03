@@ -25,7 +25,7 @@ export class Scheduler extends UuidEntity(
   @Column({ nullable: true })
   pid: number;
 
-  @Column('text')
+  @Column({ type: 'json', nullable: true })
   data: string;
 
   @Column({ default: false })

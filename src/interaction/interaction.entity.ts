@@ -16,9 +16,9 @@ import {
 import { Network } from '../network/network.entity';
 
 @Entity()
-@Unique(['network', 'fromAddress', 'toAddress'])
-@Index('idx_interaction_1', ['fromAddress'], { unique: false })
-@Index('idx_interaction_2', ['network', 'fromAddress'], { unique: false })
+@Unique(['network', 'address', 'counterParty'])
+@Index('idx_interaction_1', ['address'], { unique: false })
+@Index('idx_interaction_2', ['network', 'address'], { unique: false })
 export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   @ManyToOne(() => Network, {
     nullable: false,
@@ -26,19 +26,19 @@ export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   network: Network;
 
   @Column({ nullable: true })
-  fromAddress: string;
+  address: string;
 
   @Column({ nullable: true })
-  toAddress: string;
+  counterParty: string;
 
   @BeforeInsert()
   @BeforeUpdate()
   toCheckSum(): void {
-    if (!this.fromAddress) {
-      this.fromAddress = toCheckSumAddress(this.fromAddress);
+    if (!this.address) {
+      this.address = toCheckSumAddress(this.address);
     }
-    if (!this.toAddress) {
-      this.toAddress = toCheckSumAddress(this.toAddress);
+    if (!this.counterParty) {
+      this.counterParty = toCheckSumAddress(this.counterParty);
     }
   }
 
@@ -47,8 +47,8 @@ export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   static recursiveRelations = [];
 
   static select = [
-    'interaction.fromAddress',
-    'interaction.toAddress',
+    'interaction.address',
+    'interaction.counterParty',
 
     'network.chainId',
   ];

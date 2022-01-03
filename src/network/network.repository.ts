@@ -1,124 +1,51 @@
-import {
-  EntityRepository,
-  EntityTarget,
-  Repository,
-  DeepPartial,
-  EntityManager,
-  FindManyOptions,
-  FindOperator,
-  TransactionManager,
-  UpdateResult,
-  InsertResult,
-  SelectQueryBuilder,
-  DeleteResult,
-} from 'typeorm';
-import { Network } from './network.entity';
+import { EntityRepository, EntityTarget, SelectQueryBuilder } from 'typeorm';
 import { RepositoryBase } from '../repository.base';
+import { Network } from './network.entity';
 
 @EntityRepository(Network)
-export class NetworkRepository extends Repository<Network> {
+export class NetworkRepository extends RepositoryBase<Network> {
   entity: EntityTarget<Network> = Network;
   relations: string[] = Network.relations;
   recursiveRelations: string[] = Network.recursiveRelations;
+  select: string[] = Network.select;
 
-  async findOneBy(
-    where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
-    @TransactionManager() manager?: EntityManager,
-  ): Promise<Network> {
-    const options: FindManyOptions<Network> = {
-      where,
-      relations: [...this.relations, ...this.recursiveRelations],
-    };
+  // async _search(params: any): Promise<any[]> {
+  //   const queryBuilder = this.createQueryBuilder('network');
 
-    if (manager) {
-      return manager.findOne(this.entity, options);
-    }
-    return this.findOne(options);
-  }
+  //   this._searchQueryBuilder(queryBuilder, params);
 
-  async findAllBy(
-    where?: {
-      [K in keyof any]?: any[K] | FindOperator<any[K]>;
-    },
-    @TransactionManager() manager?: EntityManager,
-  ): Promise<Network[]> {
-    const options: FindManyOptions<Network> = {
-      where,
-      relations: [...this.relations, ...this.recursiveRelations],
-    };
-
-    if (manager) {
-      return manager.find(this.entity, options);
-    }
-    return this.find(options);
-  }
-
-  async createOneBy(
-    params: DeepPartial<Network>,
-    @TransactionManager() manager?: EntityManager,
-  ): Promise<Network> {
-    const createEntity = this.create(params);
-
-    if (manager) {
-      return manager.save(this.entity, createEntity);
-    }
-    return this.save(createEntity);
-  }
-
-  async createAllBy(
-    params: DeepPartial<Network>[],
-    @TransactionManager() manager?: EntityManager,
-  ): Promise<Network[]> {
-    const createEntities = params.map((param) => this.create(param));
-
-    if (manager) {
-      return manager.save(this.entity, createEntities);
-    }
-    return this.save(createEntities);
-  }
-
-  async createAllIfNotExistBy(
-    params: DeepPartial<Network>[],
-    @TransactionManager() manager?: EntityManager,
-  ): Promise<InsertResult> {
-    let queryBuilder: SelectQueryBuilder<Network>;
-
-    if (manager) {
-      queryBuilder = manager.createQueryBuilder();
-    } else {
-      queryBuilder = this.createQueryBuilder();
-    }
-
-    const createEntities = params.map((param) => this.create(param));
-
-    return queryBuilder
-      .insert()
-      .into(this.target)
-      .values(createEntities)
-      .orIgnore()
-      .execute();
-  }
-
-  // async updateOneBy(
-  //   where: Network[keyof Network],
-  //   set: Network[keyof Network],
-  //   @TransactionManager() manager?: EntityManager,
-  // ): Promise<UpdateResult> {
-  //   if (manager) {
-  //     return manager.update(this.entity, where, set);
+  //   if (params.skipItems) {
+  //     queryBuilder.offset(params.skipItems);
   //   }
-  //   return this.update(where, set);
+
+  //   if (params.limit) {
+  //     queryBuilder.limit(params.limit);
+  //   }
+
+  //   queryBuilder.select(Network.select);
+
+  //   const result = await queryBuilder.disableEscaping().getMany();
+  //   return result;
   // }
 
-  async deleteOneBy(
-    where?: {
-      [K in keyof any]?: any[K] | FindOperator<any[K]>;
-    },
-    @TransactionManager() manager?: EntityManager,
-  ): Promise<DeleteResult> {
-    if (manager) {
-      return manager.delete(this.entity, where);
-    }
-    return this.delete(where);
-  }
+  // private _searchQueryBuilder(
+  //   queryBuilder: SelectQueryBuilder<Network>,
+  //   params: any,
+  // ): SelectQueryBuilder<Network> {
+  //   Network.relations.forEach((relation: string) => {
+  //     queryBuilder.leftJoinAndSelect(`network.${relation}`, relation);
+  //   });
+
+  //   Network.recursiveRelations.forEach((relation: string) => {
+  //     queryBuilder.leftJoinAndSelect(relation, relation.replace('.', '_'));
+  //   });
+
+  //   queryBuilder.andWhere('network.status = true');
+
+  //   if (params.id) {
+  //     queryBuilder.andWhere('network.id = :id', { id: params.id });
+  //   }
+
+  //   return queryBuilder;
+  // }
 }
