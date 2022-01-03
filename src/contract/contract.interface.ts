@@ -8,4 +8,6 @@ export type TContractAbi =
 export interface IContractInfo {
   address: string;
   abi: TContractAbi;
+  name?: string;
+  initCodeHash?: string;
 }
