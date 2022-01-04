@@ -18,6 +18,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
   abstract recursiveRelations: string[];
   abstract select: string[];
 
+  // Wrapped findOne
   async findOneBy(
     where?: { [K in keyof any]?: any[K] | FindOperator<any[K]> },
     @TransactionManager() manager?: EntityManager,
@@ -33,6 +34,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
     return this.findOne(options);
   }
 
+  // Wrapped find
   async findAllBy(
     where?: {
       [K in keyof any]?: any[K] | FindOperator<any[K]>;
@@ -50,6 +52,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
     return this.find(options);
   }
 
+  // Wrapped save
   async createOneBy(
     params: DeepPartial<T>,
     @TransactionManager() manager?: EntityManager,
@@ -62,6 +65,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
     return this.save(createEntity);
   }
 
+  // Wrapped multiply save
   async createAllBy(
     params: DeepPartial<T>[],
     @TransactionManager() manager?: EntityManager,
@@ -74,6 +78,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
     return this.save(createEntities);
   }
 
+  // Wrapped multiply save (if not exist)
   async createAllIfNotExistBy(
     params: DeepPartial<T>[],
     @TransactionManager() manager?: EntityManager,
@@ -96,9 +101,10 @@ export abstract class RepositoryBase<T> extends Repository<T> {
       .execute();
   }
 
+  // Wrapped update
   async updateOneBy(
-    where: T[keyof T],
-    set: T[keyof T],
+    where: { [K in keyof T]?: any | FindOperator<T[K]> },
+    set: { [K in keyof T]?: any },
     @TransactionManager() manager?: EntityManager,
   ): Promise<UpdateResult> {
     if (manager) {
@@ -107,6 +113,7 @@ export abstract class RepositoryBase<T> extends Repository<T> {
     return this.update(where, set);
   }
 
+  // Wrapped delete
   async deleteOneBy(
     where?: {
       [K in keyof any]?: any[K] | FindOperator<any[K]>;

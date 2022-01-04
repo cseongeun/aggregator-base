@@ -12,7 +12,7 @@ export * from './nf-token/nf-token.service';
 
 export * from './protocol/protocol.service';
 
-export * from './scheduler/scheduler.service';
+export * from './task/task.service';
 
 export * from './token/token.service';
 

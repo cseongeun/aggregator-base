@@ -12,7 +12,7 @@ export * from './nf-token/nf-token.entity';
 
 export * from './protocol/protocol.entity';
 
-export * from './scheduler/scheduler.entity';
+export * from './task/task.entity';
 
 export * from './token/token.entity';
 
