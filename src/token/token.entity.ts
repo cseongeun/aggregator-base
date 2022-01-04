@@ -75,6 +75,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     nullable: true,
     onDelete: 'CASCADE',
   })
+  @JoinColumn()
   tokenPrice: TokenPrice;
 
   @BeforeUpdate()
@@ -83,6 +84,14 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     if (!this.address) {
       this.address = toCheckSumAddress(this.address);
     }
+  }
+
+  get priceUSD(): string {
+    return this.tokenPrice?.value || '0';
+  }
+
+  get priceKRW(): string {
+    return this.priceUSD; // * 환율;
   }
 
   static relations = ['network', 'pair0', 'pair1', 'wrapped', 'tokenPrice'];
