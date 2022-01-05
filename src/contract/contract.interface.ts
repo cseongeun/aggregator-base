@@ -10,4 +10,5 @@ export interface IContractInfo {
   abi: TContractAbi;
   name?: string;
   initCodeHash?: string;
+  [key: string]: any;
 }

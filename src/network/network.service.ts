@@ -25,9 +25,10 @@ export class NetworkService {
 
     networks.forEach((network: Network) => {
       const providers = this.generateNetworkProviders(network);
-      this.networkWithProviderByChainKey.set(network.chainKey(), {
+      this.networkWithProviderByChainKey.set(network.chainKey, {
         ...network,
         providers,
+        chainKey: network.chainKey,
       });
     });
   }

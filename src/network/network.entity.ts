@@ -6,7 +6,7 @@ import {
   EmptyEntity,
 } from '@seongeun/aggregator-util/lib/entity';
 import { getChainKey } from '@seongeun/aggregator-util/lib/naming';
-import { NETWORK_CHAIN_TYPE } from './network.constant';
+import { NETWORK_CHAIN_ID, NETWORK_CHAIN_TYPE } from './network.constant';
 
 @Entity()
 @Index('idx_network_1', ['chainId'])
@@ -26,8 +26,11 @@ export class Network extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   })
   chainType: NETWORK_CHAIN_TYPE;
 
-  @Column()
-  chainId: string;
+  @Column({
+    type: 'enum',
+    enum: NETWORK_CHAIN_ID,
+  })
+  chainId: NETWORK_CHAIN_ID;
 
   @Column()
   multiCallAddress: string;
@@ -44,8 +47,7 @@ export class Network extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column({ nullable: true })
   logoLink: string;
 
-  @AfterLoad()
-  chainKey?(): string {
+  get chainKey(): string {
     return getChainKey(this.chainType, this.chainId);
   }
 

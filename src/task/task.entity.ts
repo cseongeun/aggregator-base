@@ -26,7 +26,7 @@ export class Task extends TimeEntity(StatusEntity(EmptyEntity)) {
   panic: boolean;
 
   @Column({ default: false })
-  process: boolean;
+  active: boolean;
 
   @Column({ nullable: true })
   latestElapsedSecond: string;
