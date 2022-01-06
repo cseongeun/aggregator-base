@@ -31,6 +31,9 @@ export class Task extends TimeEntity(StatusEntity(EmptyEntity)) {
   @Column({ nullable: true })
   latestElapsedSecond: string;
 
+  @Column({ type: 'json', nullable: true })
+  config: string;
+
   static relations = [];
 
   static recursiveRelations = [];

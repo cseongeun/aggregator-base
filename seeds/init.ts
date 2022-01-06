@@ -14,9 +14,7 @@ export default class Create implements Seeder {
     await connection
       .getRepository('contract')
       .save(require('./data/contract.json'));
-    // await connection
-    //   .getRepository('scheduler')
-    //   .save(require('./data/scheduler.json'));
+    await connection.getRepository('task').save(require('./data/task.json'));
     // await connection
     //   .getRepository('interaction')
     //   .save(require('./data/interaction.json'));

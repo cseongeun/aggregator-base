@@ -34,23 +34,6 @@
     "logoLink": "network-binance"
   },
   {
-    "status": false,
-    "createdAt": "2021-10-14 11:11:00.099000",
-    "updatedAt": "2021-12-21 18:21:25.237331",
-    "deletedAt": null,
-    "id": 3,
-    "name": "EthereumClassic",
-    "subName": "ETC",
-    "currencySymbol": "ETC",
-    "chainType": "EVM",
-    "chainId": "61",
-    "multiCallAddress": "",
-    "http": "[{\"url\":\"https://www.ethercluster.com/etc\",\"type\":\"PUBLIC\"}]",
-    "blockTimeSec": 10,
-    "explorerUrl": "https://blockscout.com/etc/mainnet/",
-    "logoLink": null
-  },
-  {
     "status": true,
     "createdAt": "2021-10-14 11:11:00.101000",
     "updatedAt": "2021-12-21 18:21:25.183551",

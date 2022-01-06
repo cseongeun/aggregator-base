@@ -14,9 +14,10 @@ import {
   EmptyEntity,
 } from '@seongeun/aggregator-util/lib/entity';
 import { Protocol } from '../protocol/protocol.entity';
+import { NF_TOKEN_URI_TYPE } from './nf-token.constant';
 
 @Entity()
-@Index('idx_nfToken_1', ['protocol', 'address', 'index'])
+@Index('idx_nfToken_1', ['protocol', 'address', 'tokenId'])
 @Index('idx_nfToken_2', ['address'], { unique: false })
 export class NFToken extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Protocol, {
@@ -27,11 +28,20 @@ export class NFToken extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column()
   address: string;
 
-  @Column()
-  index: number;
+  @Column({ nullable: false })
+  name: string;
+
+  @Column({ type: 'enum', enum: NF_TOKEN_URI_TYPE })
+  uriType: NF_TOKEN_URI_TYPE;
+
+  @Column({ nullable: false })
+  tokenId: number;
 
   @Column({ nullable: true })
   tokenUri: string;
+
+  @Column({ type: 'longtext', nullable: true })
+  tokenUriData: string;
 
   @Column({ nullable: true })
   imageOrAnimationUri: string;
@@ -51,7 +61,7 @@ export class NFToken extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   static select = [
     'nfToken.id',
     'nfToken.address',
-    'nfToken.index',
+    'nfToken.tokenId',
     'nfToken.tokenUri',
     'nfToken.imageOrAnimationUri',
 
