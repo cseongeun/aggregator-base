@@ -146,7 +146,7 @@
     "currencySymbol": "LUNA",
     "chainType": "TERRA",
     "chainId": "columbus-5",
-    "multiCallAddress": "",
+    "multiCallAddress": "terra1s626l5tnse3kt5r29clw88ay3l6ju43lh3kfzq",
     "http": "[{\"url\":\"https://broken-snowy-flower.terra-mainnet.quiknode.pro/b577acdfb79450f9a9d416363cd2cb96213bbe1d/\",\"type\":\"PUBLIC\"}]",
     "blockTimeSec": 7,
     "explorerUrl": "https://finder.terra.money/mainnet/",
