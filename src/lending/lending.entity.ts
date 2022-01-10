@@ -74,8 +74,8 @@ export class Lending extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column('decimal', { precision: 65, scale: 22, default: 0 })
   reserveValue: string;
 
-  @Column({ nullable: true })
-  data: string;
+  @Column({ type: 'json', nullable: true })
+  data: any;
 
   @Column({ nullable: true })
   collateralFactor: string;

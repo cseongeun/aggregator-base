@@ -59,8 +59,8 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column({ nullable: true })
   apr: string;
 
-  @Column({ nullable: true })
-  data: string;
+  @Column({ type: 'json', nullable: true })
+  data: any;
 
   @Column({ nullable: true })
   link: string;

@@ -35,8 +35,8 @@ export class Network extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column()
   multiCallAddress: string;
 
-  @Column('text')
-  http: string[];
+  @Column({ type: 'json' })
+  http: any;
 
   @Column()
   blockTimeSec: number;

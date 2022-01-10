@@ -53,7 +53,7 @@ export class NetworkService {
 
   /**
    * Get Network's Multicall address
-   * @param chainId chainId
+   * @param chainkey chainId
    * @returns Network Multicall Address
    */
   multiCallAddress(chainKey: string): string {
@@ -68,13 +68,11 @@ export class NetworkService {
   generateNetworkProviders(network: Network): TAggregatorProviders {
     const providers: TAggregatorProviders = [];
 
-    const { chainType, chainId } = network;
-
-    const http = JSON.parse(JSON.parse(JSON.stringify(network.http)));
+    const { chainType, chainId, http } = network;
 
     switch (chainType) {
       case NETWORK_CHAIN_TYPE.EVM: {
-        for (const { name, type, url, chainId } of http) {
+        for (const { type, url } of http) {
           // let provider: Provider;
           // if (type === 'OCTET') {
           //   provider = new ethers.providers.JsonRpcProvider({
@@ -86,12 +84,9 @@ export class NetworkService {
           // } else {
           //   provider = new ethers.providers.JsonRpcProvider({ url });
           // }
-          const provider = new ethers.providers.StaticJsonRpcProvider(
-            {
-              url,
-            },
-            chainId,
-          );
+          const provider = new ethers.providers.StaticJsonRpcProvider({
+            url,
+          });
 
           providers.push(provider);
         }
