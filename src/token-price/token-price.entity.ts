@@ -9,7 +9,7 @@ import { TOKEN_PRICE_ORACLE_TYPE } from './token-price.constant';
 
 @Entity()
 export class TokenPrice extends IdEntity(TimeEntity(EmptyEntity)) {
-  @OneToOne(() => Token, { nullable: false })
+  @OneToOne(() => Token, (Token) => Token.tokenPrice, { nullable: false })
   @JoinColumn()
   token: Token;
 

@@ -96,7 +96,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
 
   static relations = ['network', 'pair0', 'pair1', 'wrapped', 'tokenPrice'];
 
-  static recursiveRelations = [];
+  static recursiveRelations = ['pair0.tokenPrice', 'pair1.tokenPrice'];
 
   static select = [
     'token.type',

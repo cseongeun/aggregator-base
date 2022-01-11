@@ -1,4 +1,4 @@
-import { AfterLoad, Column, Entity, Index } from 'typeorm';
+import { Column, Entity, Index } from 'typeorm';
 import {
   IdEntity,
   TimeEntity,
