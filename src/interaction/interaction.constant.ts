@@ -1,0 +1,6 @@
+export enum INTERACTION_TYPE {
+  TOKEN = 'TOKEN',
+  FARM = 'FARM',
+  LENDING = 'LENDING',
+  NF_TOKEN = 'NF_TOKEN',
+}

@@ -1,28 +1,31 @@
 import { Column, Entity, ManyToOne } from 'typeorm';
 import {
   IdEntity,
+  TimeEntity,
   StatusEntity,
   EmptyEntity,
 } from '@seongeun/aggregator-util/lib/entity';
-import { Network } from '../network/network.entity';
-import { INTERACTION_TYPE } from './interaction.constant';
+import { Network } from '../entity';
 
 @Entity()
-export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
+export class Event extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Network, { nullable: false })
   network: Network;
-
-  @Column({ type: 'enum', enum: INTERACTION_TYPE })
-  type: INTERACTION_TYPE;
-
-  @Column()
-  contractAddress: string;
 
   @Column()
   address: string;
 
+  @Column()
+  name: string;
+
+  @Column({ type: 'json', nullable: true })
+  args: any;
+
   @Column({ nullable: true })
-  pid: string;
+  blockNumber: number;
+
+  @Column({ nullable: true })
+  transactionHash: string;
 
   static relations = ['network'];
 

@@ -1,22 +1,49 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
+import * as _ from 'lodash';
+
+function removeId(str) {
+  if (str !== 'chain_id') {
+    return str.replace('_id', '');
+  } else {
+    return str;
+  }
+}
+
+function toRefine(originalData: any) {
+  return originalData.map((d) => {
+    const data = {};
+    Object.keys(d).forEach((k) => {
+      const key = _.camelCase(removeId(k));
+      let value = d[k];
+      if (key === 'status') {
+        if (value === 1) {
+          value = true;
+        } else {
+          value = false;
+        }
+      }
+
+      data[key] = value;
+    });
+    return data;
+  });
+}
 
 export default class Create implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
-    await connection
-      .getRepository('network')
-      .save(require('./data/network.json'));
-    await connection.getRepository('token').save(require('./data/token.json'));
-    await connection
-      .getRepository('protocol')
-      .save(require('./data/protocol.json'));
-    await connection
-      .getRepository('contract')
-      .save(require('./data/contract.json'));
-    await connection.getRepository('task').save(require('./data/task.json'));
-    // await connection
-    //   .getRepository('interaction')
-    //   .save(require('./data/interaction.json'));
+    const networkData = toRefine(require('./data/network.json'));
+    const tokenData = toRefine(require('./data/token.json'));
+    const protocolData = toRefine(require('./data/protocol.json'));
+    const contractData = toRefine(require('./data/contract.json'));
+    const taskData = toRefine(require('./data/task.json'));
+    const tokenPriceData = toRefine(require('./data/tokenPrice.json'));
+
+    await connection.getRepository('network').save(networkData);
+    await connection.getRepository('token').save(tokenData);
+    await connection.getRepository('protocol').save(protocolData);
+    await connection.getRepository('contract').save(contractData);
+    await connection.getRepository('task').save(taskData);
+    await connection.getRepository('token_price').save(tokenPriceData);
   }
 }

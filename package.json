@@ -1,6 +1,6 @@
 {
   "name": "@seongeun/aggregator-base",
-  "version": "0.0.60",
+  "version": "0.0.62",
   "description": "Aggregator base",
   "engines": {
     "node": ">=14.0.0"
@@ -23,11 +23,11 @@
     "seed:run": "npm run typeorm-seeding:cli seed"
   },
   "dependencies": {
-    "@seongeun/aggregator-util": "^1.0.12",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
+    "@seongeun/aggregator-util": "^1.0.12",
     "@terra-money/terra.js": "^3.0.2",
     "ethers": "^5.5.2",
     "mysql": "^2.18.1",
@@ -52,6 +52,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.2.5",
+    "lodash": "^4.17.21",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
     "supertest": "^6.1.3",
