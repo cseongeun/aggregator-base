@@ -1,4 +1,4 @@
-import { EntityRepository, EntityTarget, SelectQueryBuilder } from 'typeorm';
+import { EntityRepository, EntityTarget } from 'typeorm';
 import { RepositoryBase } from '../extension/repository.base';
 import { NFToken } from './nf-token.entity';
 

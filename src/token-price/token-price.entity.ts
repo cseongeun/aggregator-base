@@ -3,16 +3,11 @@ import {
   IdEntity,
   TimeEntity,
 } from '@seongeun/aggregator-util/lib/entity';
-import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
-import { Token } from '../token/token.entity';
+import { Column, Entity } from 'typeorm';
 import { TOKEN_PRICE_ORACLE_TYPE } from './token-price.constant';
 
 @Entity()
 export class TokenPrice extends IdEntity(TimeEntity(EmptyEntity)) {
-  @OneToOne(() => Token, (Token) => Token.tokenPrice, { nullable: false })
-  @JoinColumn()
-  token: Token;
-
   @Column({ type: 'enum', enum: TOKEN_PRICE_ORACLE_TYPE, nullable: true })
   oracleType: TOKEN_PRICE_ORACLE_TYPE;
 

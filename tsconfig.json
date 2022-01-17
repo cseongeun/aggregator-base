@@ -19,6 +19,6 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
   },
-  "exclude": ["node_modules", "test", "lib", "**/*spec.ts", "migrations", "seeds", "ormconfig.ts"]
+  "exclude": ["node_modules", "test", "lib", "**/*.spec.ts", "migrations", "seeds", "ormconfig.ts"]
 
 }

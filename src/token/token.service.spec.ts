@@ -9,6 +9,7 @@ import { TokenService } from './token.service';
 import * as fs from 'fs';
 import { TOKEN_TYPE } from './token.constant';
 import { NetworkService } from '../network/network.service';
+import { get } from '@seongeun/aggregator-util/lib/object';
 describe('TokenService', () => {
   const testModule = new TestModule();
   let app: INestApplication;
@@ -33,6 +34,23 @@ describe('TokenService', () => {
     });
   });
 
+  describe('migration', () => {
+    it('mi', async () => {
+      const result = await service.search({
+        networkId: 2,
+        type: [TOKEN_TYPE.NATIVE, TOKEN_TYPE.SINGLE],
+        oracleType: TOKEN_PRICE_ORACLE_TYPE.CHAIN_LINK,
+      });
+      result.map(({ tokenPrice: { oracleData } }) => {
+        const r = JSON.stringify(oracleData);
+        console.log(get(JSON.parse(r), 'feed'));
+
+        const feed = get(JSON.parse(JSON.stringify(oracleData)), 'feed');
+        console.log(feed);
+      });
+    });
+  });
+
   // describe('get tokenlist', () => {
   //   it('test', async () => {
   //     const token = await service.repository.findAllBy({
@@ -49,20 +67,6 @@ describe('TokenService', () => {
   //     console.log(token);
   //   });
   // });
-  describe('test', () => {
-    it('asdfasdf', async () => {
-      const network = await networkService.repository.findOneBy({
-        chainId: '56',
-      });
-      console.log(network);
-      const result = await service.search({
-        networkId: network.id,
-        type: TOKEN_TYPE.SINGLE,
-        // oracleType: TOKEN_PRICE_ORACLE_TYPE.CHAIN_LINK,
-      });
-      console.log(result.length);
-    });
-  });
 
   // describe('generateNetworkProviders', () => {
   //   it('동작 테스트', async () => {

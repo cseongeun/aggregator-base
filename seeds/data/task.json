@@ -1,8 +1,8 @@
 [
   {
-    "status": 1,
-    "created_at": "2022-01-06 12:13:09.432055",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-06 12:13:09.432000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "AAVE_AVALANCHE_LENDING",
     "cron": "*/30 * * * * *",
@@ -15,9 +15,24 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 12:13:09.434447",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-13 14:48:22.890212",
+    "updated_at": "2022-01-17 10:40:32",
+    "deleted_at": null,
+    "id": "AAVE_AVALANCHE_LENDING-EVENT",
+    "cron": "*/30 * * * * *",
+    "block_number": null,
+    "pid": null,
+    "data": null,
+    "panic": 0,
+    "active": 0,
+    "latest_elapsed_second": "0.003s",
+    "config": null
+  },
+  {
+    "status": 0,
+    "created_at": "2022-01-06 12:13:09.434000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "AAVE_POLYGON_LENDING",
     "cron": "*/30 * * * * *",
@@ -30,9 +45,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 12:13:09.436201",
-    "updated_at": "2022-01-13 11:45:10",
+    "status": 0,
+    "created_at": "2022-01-06 12:13:09.436000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "AIR-NFT_BINANCE-SMART-CHAIN_NFT",
     "cron": "*/30 * * * * *",
@@ -42,12 +57,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "10.334s",
-    "config": "{\"path\": \"nft.image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"nft.image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 15:51:25.987336",
-    "updated_at": "2022-01-13 11:45:14",
+    "status": 0,
+    "created_at": "2022-01-06 15:51:25.987000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "APE-SWAP_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -57,12 +72,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "4.819s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 16:33:55.881824",
-    "updated_at": "2022-01-13 11:43:23",
+    "status": 0,
+    "created_at": "2022-01-06 16:33:55.881000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "APE-SWAP_BINANCE-SMART-CHAIN_FARM",
     "cron": "*/30 * * * * *",
@@ -75,9 +90,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 16:45:45.362845",
-    "updated_at": "2022-01-13 11:43:49",
+    "status": 0,
+    "created_at": "2022-01-06 16:45:45.362000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "APE-SWAP_BINANCE-SMART-CHAIN_NFT",
     "cron": "*/30 * * * * *",
@@ -87,12 +102,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "9.275s",
-    "config": "{\"path\": \"image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 16:49:10.220985",
-    "updated_at": "2022-01-13 11:45:13",
+    "status": 0,
+    "created_at": "2022-01-06 16:49:10.220000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "APE-SWAP_POLYGON_DEX",
     "cron": "*/30 * * * * *",
@@ -102,12 +117,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "7.868s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 17:06:53.732372",
-    "updated_at": "2022-01-13 11:44:40",
+    "status": 0,
+    "created_at": "2022-01-06 17:06:53.732000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "APE-SWAP_POLYGON_FARM",
     "cron": "*/30 * * * * *",
@@ -120,9 +135,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 18:33:23.341728",
-    "updated_at": "2022-01-13 11:45:13",
+    "status": 0,
+    "created_at": "2022-01-06 18:33:23.341000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "BAKERY-SWAP_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -132,12 +147,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "3.427s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 18:34:38.468764",
-    "updated_at": "2022-01-13 11:45:13",
+    "status": 0,
+    "created_at": "2022-01-06 18:34:38.468000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "BAKERY-SWAP_BINANCE-SMART-CHAIN_FARM",
     "cron": "*/30 * * * * *",
@@ -150,9 +165,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:10:48.120820",
-    "updated_at": "2022-01-13 11:45:18",
+    "status": 0,
+    "created_at": "2022-01-06 19:10:48.120000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "BI-SWAP_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -162,12 +177,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "3.041s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:10:54.950420",
-    "updated_at": "2022-01-13 11:44:37",
+    "status": 0,
+    "created_at": "2022-01-06 19:10:54.950000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "BI-SWAP_BINANCE-SMART-CHAIN_FARM",
     "cron": "*/30 * * * * *",
@@ -180,9 +195,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:23:21.743335",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-06 19:23:21.743000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "KLAY-SWAP_KLAYTN_DEX",
     "cron": "*/30 * * * * *",
@@ -192,12 +207,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "0.639s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:25:43.191297",
-    "updated_at": "2022-01-13 11:45:12",
+    "status": 0,
+    "created_at": "2022-01-06 19:25:43.191000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "MDEX_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -207,12 +222,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "7.541s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:25:48.741504",
-    "updated_at": "2022-01-13 11:45:04",
+    "status": 0,
+    "created_at": "2022-01-06 19:25:48.741000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "MDEX_BINANCE-SMART-CHAIN_FARM",
     "cron": "*/30 * * * * *",
@@ -225,9 +240,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:39:44.128498",
-    "updated_at": "2022-01-13 11:45:16",
+    "status": 0,
+    "created_at": "2022-01-06 19:39:44.128000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "MDEX_HECO_DEX",
     "cron": "*/30 * * * * *",
@@ -237,12 +252,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "1.177s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 19:39:51.047666",
-    "updated_at": "2022-01-13 11:44:39",
+    "status": 0,
+    "created_at": "2022-01-06 19:39:51.047000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "MDEX_HECO_FARM",
     "cron": "*/30 * * * * *",
@@ -255,9 +270,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:03:15.600176",
-    "updated_at": "2022-01-13 11:45:09",
+    "status": 0,
+    "created_at": "2022-01-06 20:03:15.600000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -267,12 +282,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "4.072s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:03:25.825118",
-    "updated_at": "2022-01-13 11:43:23",
+    "status": 0,
+    "created_at": "2022-01-06 20:03:25.825000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_FARM",
     "cron": "*/30 * * * * *",
@@ -285,9 +300,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:03:32.273260",
-    "updated_at": "2022-01-13 11:44:16",
+    "status": 0,
+    "created_at": "2022-01-06 20:03:32.273000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_FARM-2",
     "cron": "*/30 * * * * *",
@@ -300,9 +315,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:08:15.536401",
-    "updated_at": "2022-01-13 11:45:16",
+    "status": 0,
+    "created_at": "2022-01-06 20:08:15.536000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_NFT",
     "cron": "*/30 * * * * *",
@@ -312,12 +327,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "16.589s",
-    "config": "{\"path\": \"image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:08:33.613871",
-    "updated_at": "2022-01-13 11:45:12",
+    "status": 0,
+    "created_at": "2022-01-06 20:08:33.613000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_NFT-2",
     "cron": "*/30 * * * * *",
@@ -327,12 +342,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "4.549s",
-    "config": "{\"path\": \"image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:08:33.617517",
-    "updated_at": "2022-01-13 11:44:14",
+    "status": 0,
+    "created_at": "2022-01-06 20:08:33.617000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_NFT-3",
     "cron": "*/30 * * * * *",
@@ -342,12 +357,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "4.274s",
-    "config": "{\"path\": \"image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:08:33.621922",
-    "updated_at": "2022-01-13 11:44:10",
+    "status": 0,
+    "created_at": "2022-01-06 20:08:33.621000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_NFT-4",
     "cron": "*/30 * * * * *",
@@ -357,12 +372,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "45.507s",
-    "config": "{\"path\": \"image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-06 20:08:33.627671",
-    "updated_at": "2022-01-13 11:45:17",
+    "status": 0,
+    "created_at": "2022-01-06 20:08:33.627000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "PANCAKE-SWAP_BINANCE-SMART-CHAIN_NFT-5",
     "cron": "*/30 * * * * *",
@@ -372,12 +387,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "17.947s",
-    "config": "{\"path\": \"image\", \"chunk\": \"10\"}"
+    "config": "\"{\\\"path\\\": \\\"image\\\", \\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:01:14.487813",
-    "updated_at": "2022-01-13 11:45:12",
+    "status": 0,
+    "created_at": "2022-01-10 11:01:14.487000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "QUICK-SWAP_POLYGON_DEX",
     "cron": "*/30 * * * * *",
@@ -387,12 +402,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "7.552s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
     "status": 0,
-    "created_at": "2022-01-10 11:02:01.128020",
-    "updated_at": "2022-01-13 11:43:23",
+    "created_at": "2022-01-10 11:02:01.128000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "QUICK-SWAP_POLYGON_FARM",
     "cron": "*/30 * * * * *",
@@ -405,9 +420,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.138506",
-    "updated_at": "2022-01-13 11:45:09",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.138000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "QUICK-SWAP_POLYGON_FARM-2",
     "cron": "*/30 * * * * *",
@@ -420,9 +435,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.149614",
-    "updated_at": "2022-01-13 11:45:11",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.149000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "SUSHI-SWAP_AVALANCHE_DEX",
     "cron": "*/30 * * * * *",
@@ -432,12 +447,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "91.573s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.160864",
-    "updated_at": "2022-01-13 11:44:25",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.160000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "SUSHI-SWAP_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -447,12 +462,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "2.9s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.174166",
-    "updated_at": "2022-01-13 11:45:10",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.174000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "SUSHI-SWAP_FANTOM_DEX",
     "cron": "*/30 * * * * *",
@@ -462,12 +477,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "5.452s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.214257",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.214000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "SUSHI-SWAP_HECO_DEX",
     "cron": "*/30 * * * * *",
@@ -477,12 +492,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "0.46s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.184964",
-    "updated_at": "2022-01-13 11:44:54",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.184000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "SUSHI-SWAP_POLYGON_DEX",
     "cron": "*/30 * * * * *",
@@ -492,12 +507,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "4.642s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.196294",
-    "updated_at": "2022-01-13 11:44:30",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.196000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "SUSHI-SWAP_POLYGON_FARM",
     "cron": "*/30 * * * * *",
@@ -510,24 +525,24 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 11:02:01.230830",
-    "updated_at": "2022-01-13 11:45:16",
+    "status": 0,
+    "created_at": "2022-01-10 11:02:01.230000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TERRA-SWAP_TERRA_DEX",
     "cron": "*/30 * * * * *",
     "block_number": null,
     "pid": null,
-    "data": "{\"latestAsset\": [{\"token\": {\"contract_addr\": \"terra1hzh9vpxhsk8253se0vv5jj6etdvxu3nv8z07zu\"}}, {\"token\": {\"contract_addr\": \"terra1hzh9vpxhsk8253se0vv5jj6etdvxu3nv8z07zu\"}}]}",
+    "data": "\"{\\\"latestAsset\\\": [{\\\"token\\\": {\\\"contract_addr\\\": \\\"terra1hzh9vpxhsk8253se0vv5jj6etdvxu3nv8z07zu\\\"}}, {\\\"token\\\": {\\\"contract_addr\\\": \\\"terra1hzh9vpxhsk8253se0vv5jj6etdvxu3nv8z07zu\\\"}}]}\"",
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "1.07s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 16:58:28.655843",
-    "updated_at": "2022-01-13 11:45:10",
+    "status": 0,
+    "created_at": "2022-01-12 16:58:28.655000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-PRICE_AVALANCHE_ALL",
     "cron": "*/30 * * * * *",
@@ -541,8 +556,8 @@
   },
   {
     "status": 1,
-    "created_at": "2022-01-12 14:22:30.247190",
-    "updated_at": "2022-01-13 11:45:15",
+    "created_at": "2022-01-12 14:22:30.247000",
+    "updated_at": "2022-01-17 10:41:00",
     "deleted_at": null,
     "id": "TOKEN-PRICE_BINANCE-SMART-CHAIN_ALL",
     "cron": "*/30 * * * * *",
@@ -551,13 +566,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "0.442s",
-    "config": "{\"chunk\": \"100\", \"historicalRecordDays\": 30}"
+    "latest_elapsed_second": "0.216s",
+    "config": "\"{\\\"chunk\\\": \\\"100\\\", \\\"historicalRecordDays\\\": 30}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 16:58:28.650289",
-    "updated_at": "2022-01-13 11:45:13",
+    "status": 0,
+    "created_at": "2022-01-12 16:58:28.650000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-PRICE_FANTOM_ALL",
     "cron": "*/30 * * * * *",
@@ -570,9 +585,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 16:58:28.637046",
-    "updated_at": "2022-01-13 11:43:23",
+    "status": 0,
+    "created_at": "2022-01-12 16:58:28.637000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-PRICE_HECO_ALL",
     "cron": "*/30 * * * * *",
@@ -585,9 +600,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 16:58:28.643954",
-    "updated_at": "2022-01-13 11:44:35",
+    "status": 0,
+    "created_at": "2022-01-12 16:58:28.643000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-PRICE_KLAYTN_ALL",
     "cron": "*/30 * * * * *",
@@ -596,13 +611,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "0.587s",
+    "latest_elapsed_second": "0.577s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 16:58:00.780508",
-    "updated_at": "2022-01-13 11:43:23",
+    "status": 0,
+    "created_at": "2022-01-12 16:58:00.780000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-PRICE_POLYGON_ALL",
     "cron": "*/30 * * * * *",
@@ -615,9 +630,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 16:58:28.632151",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-12 16:58:28.632000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-PRICE_XDAI_ALL",
     "cron": "*/30 * * * * *",
@@ -626,13 +641,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "0.434s",
+    "latest_elapsed_second": "0.566s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 18:58:13.446922",
-    "updated_at": "2022-01-13 11:45:07",
+    "status": 0,
+    "created_at": "2022-01-12 18:58:13.446000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_AVALANCHE_ALL",
     "cron": "*/30 * * * * *",
@@ -641,13 +656,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "12.485s",
+    "latest_elapsed_second": "0.491s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 17:18:18.872391",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-12 17:18:18.872000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_BINANCE-SMART-CHAIN_ALL",
     "cron": "*/30 * * * * *",
@@ -656,13 +671,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "0.286s",
+    "latest_elapsed_second": "0.488s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 18:58:13.433220",
-    "updated_at": "2022-01-13 11:45:13",
+    "status": 0,
+    "created_at": "2022-01-12 18:58:13.433000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_FANTOM_ALL",
     "cron": "*/30 * * * * *",
@@ -671,13 +686,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "48.654s",
+    "latest_elapsed_second": "0.478s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 18:58:13.406380",
-    "updated_at": "2022-01-13 11:43:23",
+    "status": 0,
+    "created_at": "2022-01-12 18:58:13.406000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_HECO_ALL",
     "cron": "*/30 * * * * *",
@@ -686,13 +701,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "29.473s",
+    "latest_elapsed_second": "0.479s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 18:58:13.416143",
-    "updated_at": "2022-01-13 11:44:23",
+    "status": 0,
+    "created_at": "2022-01-12 18:58:13.416000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_KLAYTN_ALL",
     "cron": "*/30 * * * * *",
@@ -701,13 +716,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "8.608s",
+    "latest_elapsed_second": "0.48s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 18:58:13.383441",
-    "updated_at": "2022-01-13 11:43:23",
+    "status": 0,
+    "created_at": "2022-01-12 18:58:13.383000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_POLYGON_ALL",
     "cron": "*/30 * * * * *",
@@ -716,13 +731,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "43.093s",
+    "latest_elapsed_second": "0.467s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-12 18:58:13.396720",
-    "updated_at": "2022-01-13 11:45:15",
+    "status": 0,
+    "created_at": "2022-01-12 18:58:13.396000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "TOKEN-SUPPLY_XDAI_ALL",
     "cron": "*/30 * * * * *",
@@ -731,13 +746,13 @@
     "data": null,
     "panic": 0,
     "active": 0,
-    "latest_elapsed_second": "0.063s",
+    "latest_elapsed_second": "0.446s",
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 12:09:47.712188",
-    "updated_at": "2022-01-13 11:44:55",
+    "status": 0,
+    "created_at": "2022-01-10 12:09:47.712000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "VENUS_BINANCE-SMART-CHAIN_LENDING",
     "cron": "*/30 * * * * *",
@@ -750,9 +765,9 @@
     "config": null
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 13:00:29.846430",
-    "updated_at": "2022-01-13 11:45:19",
+    "status": 0,
+    "created_at": "2022-01-10 13:00:29.846000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "WAULT-SWAP_BINANCE-SMART-CHAIN_DEX",
     "cron": "*/30 * * * * *",
@@ -762,12 +777,12 @@
     "panic": 0,
     "active": 0,
     "latest_elapsed_second": "4.381s",
-    "config": "{\"chunk\": \"10\"}"
+    "config": "\"{\\\"chunk\\\": \\\"10\\\"}\""
   },
   {
-    "status": 1,
-    "created_at": "2022-01-10 13:00:29.865825",
-    "updated_at": "2022-01-13 11:44:50",
+    "status": 0,
+    "created_at": "2022-01-10 13:00:29.865000",
+    "updated_at": "2022-01-17 10:40:32",
     "deleted_at": null,
     "id": "WAULT-SWAP_BINANCE-SMART-CHAIN_FARM",
     "cron": "*/30 * * * * *",

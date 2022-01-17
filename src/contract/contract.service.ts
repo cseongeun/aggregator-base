@@ -1,5 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { Injectable } from '@nestjs/common';
 import { ContractRepository } from './contract.repository';
 
 @Injectable()

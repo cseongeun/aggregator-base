@@ -1,9 +1,4 @@
-import {
-  EntityRepository,
-  EntityTarget,
-  In,
-  SelectQueryBuilder,
-} from 'typeorm';
+import { EntityRepository, EntityTarget } from 'typeorm';
 import { RepositoryBase } from '../extension/repository.base';
 import { Interaction } from './interaction.entity';
 

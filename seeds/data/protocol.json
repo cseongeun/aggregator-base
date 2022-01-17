@@ -1,8 +1,8 @@
 [
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.054000",
-    "updated_at": "2021-11-24 17:11:48.012000",
+    "updated_at": "2022-01-13 14:47:12.927129",
     "deleted_at": null,
     "id": 1,
     "name": "PancakeSwap",
@@ -16,9 +16,9 @@
     "token_id": 2
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.057000",
-    "updated_at": "2021-11-22 19:04:01.259000",
+    "updated_at": "2022-01-13 14:47:12.923514",
     "deleted_at": null,
     "id": 2,
     "name": "SushiSwap",
@@ -32,9 +32,9 @@
     "token_id": 32
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.059000",
-    "updated_at": "2021-11-24 19:34:20.190000",
+    "updated_at": "2022-01-13 14:47:12.916185",
     "deleted_at": null,
     "id": 3,
     "name": "AutoFarm",
@@ -48,9 +48,9 @@
     "token_id": 62
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.062000",
-    "updated_at": "2021-11-22 19:04:01.332000",
+    "updated_at": "2022-01-13 14:47:12.948340",
     "deleted_at": null,
     "id": 4,
     "name": "BeltFi",
@@ -64,9 +64,9 @@
     "token_id": 59
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.065000",
-    "updated_at": "2021-11-24 19:34:20.206000",
+    "updated_at": "2022-01-13 14:47:12.944917",
     "deleted_at": null,
     "id": 5,
     "name": "BakerySwap",
@@ -80,9 +80,9 @@
     "token_id": 67
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.067000",
-    "updated_at": "2021-11-22 19:04:01.289000",
+    "updated_at": "2022-01-13 14:47:12.941225",
     "deleted_at": null,
     "id": 6,
     "name": "UniSwap",
@@ -96,9 +96,9 @@
     "token_id": 44
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.068000",
-    "updated_at": "2021-11-24 19:34:20.212000",
+    "updated_at": "2022-01-13 14:47:12.936202",
     "deleted_at": null,
     "id": 7,
     "name": "MDEX",
@@ -112,9 +112,9 @@
     "token_id": 68
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.069000",
-    "updated_at": "2021-11-22 19:04:01.359000",
+    "updated_at": "2022-01-13 14:47:12.961898",
     "deleted_at": null,
     "id": 8,
     "name": "Convex",
@@ -128,9 +128,9 @@
     "token_id": 61
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.071000",
-    "updated_at": "2021-11-22 19:04:01.325000",
+    "updated_at": "2022-01-13 14:47:12.958615",
     "deleted_at": null,
     "id": 9,
     "name": "WaultSwap",
@@ -144,9 +144,9 @@
     "token_id": 60
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.072000",
-    "updated_at": "2021-11-24 19:34:20.200000",
+    "updated_at": "2022-01-13 14:47:12.954988",
     "deleted_at": null,
     "id": 10,
     "name": "ApeSwap",
@@ -160,9 +160,9 @@
     "token_id": 69
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.073000",
-    "updated_at": "2021-11-24 19:34:20.195000",
+    "updated_at": "2022-01-13 14:47:12.951261",
     "deleted_at": null,
     "id": 11,
     "name": "ApeSwap",
@@ -176,9 +176,9 @@
     "token_id": 70
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.075000",
-    "updated_at": "2021-11-24 19:34:20.184000",
+    "updated_at": "2022-01-13 14:47:12.976245",
     "deleted_at": null,
     "id": 12,
     "name": "SushiSwap",
@@ -192,9 +192,9 @@
     "token_id": 73
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.077000",
-    "updated_at": "2021-11-22 19:04:01.352000",
+    "updated_at": "2022-01-13 14:47:12.972719",
     "deleted_at": null,
     "id": 13,
     "name": "SushiSwap",
@@ -208,9 +208,9 @@
     "token_id": 58
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.078000",
-    "updated_at": "2021-11-22 19:04:01.345000",
+    "updated_at": "2022-01-13 14:47:12.969626",
     "deleted_at": null,
     "id": 14,
     "name": "SushiSwap",
@@ -224,9 +224,9 @@
     "token_id": 81
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.079000",
-    "updated_at": "2021-11-22 19:04:01.366000",
+    "updated_at": "2022-01-13 14:47:12.966464",
     "deleted_at": null,
     "id": 15,
     "name": "SushiSwap",
@@ -240,9 +240,9 @@
     "token_id": 82
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.081000",
-    "updated_at": "2021-11-24 19:34:20.221000",
+    "updated_at": "2022-01-13 14:47:12.999758",
     "deleted_at": null,
     "id": 16,
     "name": "MDEX",
@@ -256,9 +256,9 @@
     "token_id": 83
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.082000",
-    "updated_at": "2021-11-22 19:04:01.378000",
+    "updated_at": "2022-01-13 14:47:13.003254",
     "deleted_at": null,
     "id": 17,
     "name": "SushiSwap",
@@ -272,9 +272,9 @@
     "token_id": 91
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.084000",
-    "updated_at": "2021-11-24 19:34:20.226000",
+    "updated_at": "2022-01-13 14:47:12.900680",
     "deleted_at": null,
     "id": 18,
     "name": "BiSwap",
@@ -288,9 +288,9 @@
     "token_id": 99
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.085000",
-    "updated_at": "2021-11-22 19:04:01.390000",
+    "updated_at": "2022-01-13 14:47:12.931730",
     "deleted_at": null,
     "id": 19,
     "name": "AirNFT",
@@ -304,9 +304,9 @@
     "token_id": null
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-14 11:12:27.087000",
-    "updated_at": "2021-11-22 19:04:01.427000",
+    "updated_at": "2022-01-13 14:47:12.986497",
     "deleted_at": null,
     "id": 20,
     "name": "Venus",
@@ -320,9 +320,9 @@
     "token_id": 13
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-27 12:12:38.781000",
-    "updated_at": "2021-11-22 19:04:01.398000",
+    "updated_at": "2022-01-13 14:47:12.982969",
     "deleted_at": null,
     "id": 21,
     "name": "KlaySwap",
@@ -336,9 +336,9 @@
     "token_id": 100
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-10-27 16:30:43.258000",
-    "updated_at": "2021-11-24 19:34:20.216000",
+    "updated_at": "2022-01-13 14:47:12.979331",
     "deleted_at": null,
     "id": 22,
     "name": "QuickSwap",
@@ -352,9 +352,9 @@
     "token_id": 101
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-11-01 12:17:58.891000",
-    "updated_at": "2021-11-22 19:04:01.409000",
+    "updated_at": "2022-01-13 14:47:12.909295",
     "deleted_at": null,
     "id": 23,
     "name": "SushiSwap",
@@ -368,9 +368,9 @@
     "token_id": 128
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-11-01 17:16:11.341000",
-    "updated_at": "2021-11-22 19:04:01.433000",
+    "updated_at": "2022-01-13 14:47:12.996326",
     "deleted_at": null,
     "id": 24,
     "name": "Aave",
@@ -384,9 +384,9 @@
     "token_id": 114
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-11-02 16:43:18.884000",
-    "updated_at": "2021-11-22 19:04:01.415000",
+    "updated_at": "2022-01-13 14:47:12.992780",
     "deleted_at": null,
     "id": 25,
     "name": "Aave",
@@ -400,9 +400,9 @@
     "token_id": 133
   },
   {
-    "status": 0,
+    "status": 1,
     "created_at": "2021-11-02 16:43:18.884000",
-    "updated_at": "2021-11-22 19:04:01.415000",
+    "updated_at": "2022-01-13 14:47:12.989691",
     "deleted_at": null,
     "id": 26,
     "name": "TerraSwap",

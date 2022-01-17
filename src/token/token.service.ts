@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { isArray, isNull } from '@seongeun/aggregator-util/lib/type';
-import { id } from 'ethers/lib/utils';
 import { EntityManager, SelectQueryBuilder, TransactionManager } from 'typeorm';
 import { TokenPriceRepository } from '../token-price/token-price.repository';
 import { TokenSearchQuery } from './token.dto';
@@ -22,7 +21,6 @@ export class TokenService {
     if (isNull(token.tokenPrice)) {
       const tokenPriceEntity = await this.tokenPriceRepository.createOneBy(
         {
-          token,
           value: params.value,
           historicalValue: params.historicalValue,
         },

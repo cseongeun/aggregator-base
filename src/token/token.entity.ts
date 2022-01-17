@@ -64,6 +64,9 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column({ default: false })
   swapBase: boolean;
 
+  @Column({ default: false })
+  verify: boolean;
+
   @OneToOne(() => Token, {
     nullable: true,
     onDelete: 'CASCADE',

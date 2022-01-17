@@ -1,13 +1,4 @@
-import {
-  EntityManager,
-  EntityRepository,
-  EntityTarget,
-  FindManyOptions,
-  FindOperator,
-  Repository,
-  SelectQueryBuilder,
-  TransactionManager,
-} from 'typeorm';
+import { EntityRepository, EntityTarget } from 'typeorm';
 import { RepositoryBase } from '../extension/repository.base';
 import { Protocol } from './protocol.entity';
 

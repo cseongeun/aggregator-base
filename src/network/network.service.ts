@@ -72,7 +72,7 @@ export class NetworkService {
 
     switch (chainType) {
       case NETWORK_CHAIN_TYPE.EVM: {
-        for (const { type, url } of http) {
+        for (const { url } of http) {
           // let provider: Provider;
           // if (type === 'OCTET') {
           //   provider = new ethers.providers.JsonRpcProvider({

@@ -1,5 +1,4 @@
 import { TOKEN_PRICE_ORACLE_TYPE } from '../constant';
-import { Network } from '../entity';
 import { TOKEN_TYPE } from './token.constant';
 
 export class TokenSearchQuery {
