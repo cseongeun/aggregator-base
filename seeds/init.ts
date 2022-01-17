@@ -1,46 +1,7 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
-import * as _ from 'lodash';
 import * as fs from 'fs';
 import * as path from 'path';
-
-function removeId(str) {
-  if (str !== 'chain_id') {
-    return str.replace('_id', '');
-  } else {
-    return str;
-  }
-}
-
-// function toRefine(originalData: any) {
-//   return originalData.map((d) => {
-//     const data = {};
-//     Object.keys(d).forEach((k) => {
-//       const key = _.camelCase(removeId(k));
-//       let value = d[k];
-//       const toChangeBooleanKey = [
-//         'status',
-//         'verify',
-//         'swapBase',
-//         'useDex',
-//         'useFarm',
-//         'useNFT',
-//         'useLending',
-//       ];
-
-//       if (key.includes(toChangeBooleanKey)) {
-//         if (value === 1) {
-//           value = true;
-//         } else {
-//           value = false;
-//         }
-//       }
-
-//       data[key] = value;
-//     });
-//     return data;
-//   });
-// }
 
 const readSqlFile = (filepath: string): string[] => {
   return fs
@@ -53,22 +14,25 @@ const readSqlFile = (filepath: string): string[] => {
 
 export default class Create implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
-    const networkData = readSqlFile('../seeds/sql/aggregator_contract.sql');
+    const seq = [
+      readSqlFile('../seeds/sql/aggregator_network.sql'),
+      readSqlFile('../seeds/sql/aggregator_token_price.sql'),
+      readSqlFile('../seeds/sql/aggregator_contract.sql'),
+      readSqlFile('../seeds/sql/aggregator_token.sql'),
+      readSqlFile('../seeds/sql/aggregator_protocol.sql'),
+      readSqlFile('../seeds/sql/aggregator_task.sql'),
+    ];
 
+    //  off
+    await connection.query('SET foreign_key_checks = 0;');
 
-    for 
-    await connection.query(networkData);
-    // const networkData = toRefine(require('./data/network.json'));
-    // const tokenPriceData = toRefine(require('./data/tokenPrice.json'));
-    // const tokenData = toRefine(require('./data/token.json'));
-    // const protocolData = toRefine(require('./data/protocol.json'));
-    // const contractData = toRefine(require('./data/contract.json'));
-    // const taskData = toRefine(require('./data/task.json'));
-    // await connection.getRepository('network').save(networkData);
-    // await connection.getRepository('token').save(tokenData);
-    // await connection.getRepository('protocol').save(protocolData);
-    // await connection.getRepository('contract').save(contractData);
-    // await connection.getRepository('task').save(taskData);
-    // await connection.getRepository('token_price').save(tokenPriceData);
+    for await (const table of seq) {
+      for await (const query of table) {
+        await connection.query(query);
+      }
+    }
+
+    // on
+    await connection.query('SET foreign_key_checks = 1;');
   }
 }
