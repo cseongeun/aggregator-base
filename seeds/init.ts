@@ -1,6 +1,8 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
 import * as _ from 'lodash';
+import * as fs from 'fs';
+import * as path from 'path';
 
 function removeId(str) {
   if (str !== 'chain_id') {
@@ -40,8 +42,22 @@ function removeId(str) {
 //   });
 // }
 
+const readSqlFile = (filepath: string): string[] => {
+  return fs
+    .readFileSync(path.join(__dirname, filepath))
+    .toString()
+    .replace(/\r?\n|\r/g, '')
+    .split(';')
+    .filter((query) => query?.length);
+};
+
 export default class Create implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
+    const networkData = readSqlFile('../seeds/sql/aggregator_contract.sql');
+
+
+    for 
+    await connection.query(networkData);
     // const networkData = toRefine(require('./data/network.json'));
     // const tokenPriceData = toRefine(require('./data/tokenPrice.json'));
     // const tokenData = toRefine(require('./data/token.json'));
