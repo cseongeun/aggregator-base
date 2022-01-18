@@ -23,16 +23,17 @@ export default class Create implements Seeder {
       readSqlFile('../seeds/sql/aggregator_task.sql'),
     ];
 
-    //  off
+    //  foreign_key off
     await connection.query('SET foreign_key_checks = 0;');
 
+    // insert seed
     for await (const table of seq) {
       for await (const query of table) {
         await connection.query(query);
       }
     }
 
-    // on
+    // foreign_key on
     await connection.query('SET foreign_key_checks = 1;');
   }
 }

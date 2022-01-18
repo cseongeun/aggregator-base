@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class init1642422540246 implements MigrationInterface {
-    name = 'init1642422540246'
+export class init1642463248636 implements MigrationInterface {
+    name = 'init1642463248636'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE \`network\` (\`status\` tinyint NOT NULL DEFAULT 1, \`created_at\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6), \`updated_at\` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6), \`deleted_at\` timestamp NULL, \`id\` bigint NOT NULL AUTO_INCREMENT, \`name\` varchar(255) NOT NULL, \`sub_name\` varchar(255) NOT NULL, \`currency_symbol\` varchar(255) NOT NULL, \`chain_type\` enum ('EVM', 'TERRA') NOT NULL, \`chain_id\` enum ('1', '56', '100', '128', '137', '250', '8217', '43114', 'columbus-5') NOT NULL, \`multi_call_address\` varchar(255) NOT NULL, \`http\` json NOT NULL, \`block_time_sec\` int NOT NULL, \`explorer_url\` varchar(255) NOT NULL, \`logo_link\` varchar(255) NULL, INDEX \`idx_network_1\` (\`chain_id\`), PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);

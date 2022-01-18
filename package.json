@@ -1,6 +1,6 @@
 {
   "name": "@seongeun/aggregator-base",
-  "version": "0.0.64",
+  "version": "0.0.66",
   "description": "Aggregator base",
   "engines": {
     "node": ">=14.0.0"
@@ -28,7 +28,7 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
-    "@seongeun/aggregator-util": "^1.0.12",
+    "@seongeun/aggregator-util": "^1.0.26",
     "@terra-money/terra.js": "^3.0.2",
     "ethers": "^5.5.2",
     "mysql": "^2.18.1",
