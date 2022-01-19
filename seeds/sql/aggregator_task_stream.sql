@@ -1,2 +1,2 @@
-UPDATE aggregator.task_stream SET status = 0, created_at = '2022-01-18 18:16:48.281276', updated_at = '2022-01-19 12:15:51', deleted_at = null, data = null, active = 0, config = null WHERE id = 'AAVE_AVALANCHE_LENDING-EVENT';
-UPDATE aggregator.task_stream SET status = 1, created_at = '2022-01-19 12:06:47.926435', updated_at = '2022-01-19 12:15:51', deleted_at = null, data = null, active = 0, config = null WHERE id = 'PANCAKE-SWAP_BINANCE-SMART-CHAIN_FARM-EVENT';
+INSERT INTO aggregator.task_stream (status, created_at, updated_at, deleted_at, id, data, active, config) VALUES (1, '2022-01-19 12:36:41.096176', '2022-01-19 12:36:41.096176', null, 'AAVE_AVALANCHE_LENDING-EVENT', null, 0, null);
+INSERT INTO aggregator.task_stream (status, created_at, updated_at, deleted_at, id, data, active, config) VALUES (1, '2022-01-19 12:36:41.105815', '2022-01-19 12:36:41.105815', null, 'PANCAKE-SWAP_BINANCE-SMART-CHAIN_FARM-EVENT', null, 0, null);
