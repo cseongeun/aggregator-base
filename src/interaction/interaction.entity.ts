@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, Index, ManyToOne } from 'typeorm';
 import {
   IdEntity,
   StatusEntity,
@@ -8,6 +8,9 @@ import { Network } from '../network/network.entity';
 import { INTERACTION_TYPE } from './interaction.constant';
 
 @Entity()
+@Index('idx_interaction_1', ['address'], { unique: false })
+@Index('idx_interaction_2', ['contractAddress', 'address', 'network'])
+@Index('idx_interaction_3', ['contractAddress', 'address', 'network', 'pid'])
 export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   @ManyToOne(() => Network, { nullable: false })
   network: Network;
