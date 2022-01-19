@@ -21,6 +21,7 @@ export default class Create implements Seeder {
       readSqlFile('../seeds/sql/aggregator_token.sql'),
       readSqlFile('../seeds/sql/aggregator_protocol.sql'),
       readSqlFile('../seeds/sql/aggregator_task.sql'),
+      readSqlFile('../seeds/sql/aggregator_task_stream.sql'),
     ];
 
     //  foreign_key off
