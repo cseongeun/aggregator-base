@@ -14,7 +14,7 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "rimraf lib && tsc",
-    "publish": "npm run build && npm version patch && npm publish",
+    "deploy": "npm i; npm run build; npm version patch; npm publish;",
     "lint": "eslint \"{src,apps}/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "typeorm:cli": "ts-node --files -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config ormconfig.ts",
@@ -29,7 +29,7 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
-    "@seongeun/aggregator-util": "^1.0.26",
+    "@seongeun/aggregator-util": "^1.0.29",
     "@terra-money/terra.js": "^3.0.2",
     "ethers": "^5.5.2",
     "mysql": "^2.18.1",
