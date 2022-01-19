@@ -20,7 +20,6 @@ import { Token } from '../token/token.entity';
 
 @Entity()
 @Index('idx_farm_1', ['protocol', 'address'], { unique: false })
-@Index('idx_farm_2', ['protocol', 'pid'], { unique: false })
 @Index('idx_farm_3', ['protocol', 'address', 'pid'], { unique: true })
 @Index('idx_farm_4', ['address'], { unique: false })
 export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {

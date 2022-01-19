@@ -17,7 +17,7 @@ import { Protocol } from '../protocol/protocol.entity';
 import { NF_TOKEN_URI_TYPE } from './nf-token.constant';
 
 @Entity()
-@Index('idx_nfToken_1', ['protocol', 'address', 'tokenId'])
+@Index('idx_nfToken_1', ['protocol', 'address', 'tokenId'], { unique: true })
 @Index('idx_nfToken_2', ['address'], { unique: false })
 export class NFToken extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Protocol, {

@@ -18,7 +18,6 @@ import {
 
 @Entity()
 @Index('idx_lending_1', ['protocol', 'address'], { unique: false })
-@Index('idx_lending_2', ['protocol', 'pid'], { unique: false })
 @Index('idx_lending_3', ['protocol', 'address', 'pid'], { unique: true })
 export class Lending extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Protocol, {

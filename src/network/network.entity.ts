@@ -9,7 +9,7 @@ import { getChainKey } from '@seongeun/aggregator-util/lib/naming';
 import { NETWORK_CHAIN_ID, NETWORK_CHAIN_TYPE } from './network.constant';
 
 @Entity()
-@Index('idx_network_1', ['chainId'])
+@Index('idx_network_1', ['chainType', 'chainId'], { unique: true })
 export class Network extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column()
   name: string;

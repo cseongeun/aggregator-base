@@ -9,8 +9,9 @@ import { INTERACTION_TYPE } from './interaction.constant';
 
 @Entity()
 @Index('idx_interaction_1', ['address'], { unique: false })
-@Index('idx_interaction_2', ['contractAddress', 'address', 'network'])
-@Index('idx_interaction_3', ['contractAddress', 'address', 'network', 'pid'])
+@Index('idx_interaction_2', ['contractAddress', 'address', 'network', 'pid'], {
+  unique: true,
+})
 export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   @ManyToOne(() => Network, { nullable: false })
   network: Network;
