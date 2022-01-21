@@ -28,6 +28,9 @@ export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   @Column({ nullable: true })
   pid: string;
 
+  @Column({ nullable: true })
+  poolAddress: string;
+
   static relations = ['network'];
 
   static recursiveRelations = [];
