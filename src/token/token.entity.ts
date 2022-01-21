@@ -109,7 +109,6 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'token.address',
     'token.totalSupply',
     'token.logoLink',
-    'token.tokenPrice',
 
     'network.name',
     'network.subName',
@@ -125,7 +124,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'pair0.totalSupply',
     'pair0.decimals',
     'pair0.logoLink',
-    'pair0.tokenPrice',
+    'pair0.tokenPrice.value',
 
     'pair1.name',
     'pair1.symbol',
@@ -133,7 +132,7 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'pair1.totalSupply',
     'pair1.decimals',
     'pair1.logoLink',
-    'pair1.tokenPrice',
+    'pair1.tokenPrice.value',
 
     'wrapped.name',
     'wrapped.symbol',
