@@ -35,6 +35,9 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column({ nullable: true })
   pid: number;
 
+  @Column({ nullable: true })
+  poolAddress: string;
+
   @Column()
   assets: string;
 
@@ -87,6 +90,7 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'farm.name',
     'farm.address',
     'farm.pid',
+    'farm.poolAddress',
     'farm.assets',
     'farm.liquidityAmount',
     'farm.liquidityValue',
