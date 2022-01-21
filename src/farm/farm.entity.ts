@@ -84,6 +84,12 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'stakeTokens.pair1',
     'rewardTokens.pair0',
     'rewardTokens.pair1',
+
+    'stakeTokens.pair0.tokenPrice',
+    'stakeTokens.pair1.tokenPrice',
+
+    'rewardTokens.pair0.tokenPrice',
+    'rewardTokens.pair1.tokenPrice',
   ];
 
   static select = [
