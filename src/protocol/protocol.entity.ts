@@ -40,7 +40,7 @@ export class Protocol extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
 
   static relations = ['network', 'token'];
 
-  static recursiveRelations = [];
+  static recursiveRelations = ['token.tokenPrice'];
 
   static select = [
     'protocol.id',
@@ -63,7 +63,6 @@ export class Protocol extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'token.decimals',
     'token.address',
     'token.totalSupply',
-    'token.priceValue',
     'token.logoLink',
   ];
 }

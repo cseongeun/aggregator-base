@@ -140,7 +140,6 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'wrapped.totalSupply',
     'wrapped.name',
     'wrapped.decimals',
-    'wrapped.priceValue',
     'wrapped.logoLink',
 
     'tokenPrice.value',
