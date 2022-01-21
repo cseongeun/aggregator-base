@@ -29,7 +29,7 @@ export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   pid: string;
 
   @Column({ nullable: true })
-  poolAddress: string;
+  referAddress: string;
 
   static relations = ['network'];
 
