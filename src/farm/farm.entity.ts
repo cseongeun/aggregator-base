@@ -123,15 +123,14 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'stakeTokens.decimals',
     'stakeTokens.address',
     'stakeTokens.totalSupply',
-    'stakeTokens.priceValue',
     'stakeTokens.logoLink',
+    'stakeTokens.tokenPrice',
 
     'stakeTokens_pair0.name',
     'stakeTokens_pair0.symbol',
     'stakeTokens_pair0.decimals',
     'stakeTokens_pair0.address',
     'stakeTokens_pair0.totalSupply',
-    'stakeTokens_pair0.priceValue',
     'stakeTokens_pair0.logoLink',
 
     'stakeTokens_pair1.name',
@@ -139,7 +138,6 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'stakeTokens_pair1.decimals',
     'stakeTokens_pair1.address',
     'stakeTokens_pair1.totalSupply',
-    'stakeTokens_pair1.priceValue',
     'stakeTokens_pair1.logoLink',
 
     'rewardTokens.name',
@@ -148,15 +146,14 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'rewardTokens.type',
     'rewardTokens.address',
     'rewardTokens.totalSupply',
-    'rewardTokens.priceValue',
     'rewardTokens.logoLink',
+    'rewardTokens.tokenPrice',
 
     'rewardTokens_pair0.name',
     'rewardTokens_pair0.symbol',
     'rewardTokens_pair0.decimals',
     'rewardTokens_pair0.address',
     'rewardTokens_pair0.totalSupply',
-    'rewardTokens_pair0.priceValue',
     'rewardTokens_pair0.logoLink',
 
     'rewardTokens_pair1.name',
@@ -164,7 +161,6 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'rewardTokens_pair1.decimals',
     'rewardTokens_pair1.address',
     'rewardTokens_pair1.totalSupply',
-    'rewardTokens_pair1.priceValue',
     'rewardTokens_pair1.logoLink',
   ];
 }
