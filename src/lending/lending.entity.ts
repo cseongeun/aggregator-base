@@ -124,8 +124,8 @@ export class Lending extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'supplyToken.type',
     'supplyToken.address',
     'supplyToken.totalSupply',
-    'supplyToken.priceValue',
     'supplyToken.logoLink',
+    'supplyToken.tokenPrice',
 
     'borrowToken.name',
     'borrowToken.symbol',
@@ -133,8 +133,8 @@ export class Lending extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
     'borrowToken.type',
     'borrowToken.address',
     'borrowToken.totalSupply',
-    'borrowToken.priceValue',
     'borrowToken.logoLink',
+    'borrowToken.tokenPrice',
 
     'protocol.id',
     'protocol.name',
