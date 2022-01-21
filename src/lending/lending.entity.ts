@@ -95,7 +95,11 @@ export class Lending extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
 
   static relations = ['protocol', 'supplyToken', 'borrowToken'];
 
-  static recursiveRelations = ['protocol.network'];
+  static recursiveRelations = [
+    'protocol.network',
+    'supplyToken.tokenPrice',
+    'borrowToken.tokenPrice',
+  ];
 
   static select = [
     'lending.id',

@@ -80,16 +80,20 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
 
   static recursiveRelations = [
     'protocol.network',
+
+    'stakeTokens.tokenPrice',
     'stakeTokens.pair0',
     'stakeTokens.pair1',
+
+    'rewardTokens.tokenPrice',
     'rewardTokens.pair0',
     'rewardTokens.pair1',
 
-    'stakeTokens.pair0.tokenPrice',
-    'stakeTokens.pair1.tokenPrice',
+    // 'stakeTokens.pair0.tokenPrice',
+    // 'stakeTokens.pair1.tokenPrice',
 
-    'rewardTokens.pair0.tokenPrice',
-    'rewardTokens.pair1.tokenPrice',
+    // 'rewardTokens.pair0.tokenPrice',
+    // 'rewardTokens.pair1.tokenPrice',
   ];
 
   static select = [
