@@ -16,8 +16,6 @@ export * from './token/token.service';
 
 export * from './token-price/token-price.service';
 
-export * from './event/event.service';
-
 export * from './interaction/interaction.service';
 
 export * from './task-stream/task-stream.service';

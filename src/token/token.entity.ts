@@ -31,19 +31,19 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   })
   type: TOKEN_TYPE;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100, nullable: false })
   name: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100, nullable: false })
   symbol: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100, nullable: false })
   address: string;
 
-  @Column()
+  @Column({ type: 'integer', nullable: false })
   decimals: number;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   totalSupply: string;
 
   @ManyToOne(() => Token, (token) => token.pair0, {
@@ -58,13 +58,13 @@ export class Token extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   })
   pair1: Token;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   logoLink: string;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   swapBase: boolean;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   verify: boolean;
 
   @OneToOne(() => Token, {

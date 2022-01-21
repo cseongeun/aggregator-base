@@ -14,7 +14,10 @@ export class TaskStream extends TimeEntity(StatusEntity(EmptyEntity)) {
   data: string;
 
   @Column({ default: false })
-  active: boolean;
+  streaming: boolean;
+
+  @Column({ default: false })
+  blockNumber: number;
 
   @Column({ type: 'json', nullable: true })
   config: string;

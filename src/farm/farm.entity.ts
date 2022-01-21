@@ -27,19 +27,19 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Protocol, { nullable: false })
   protocol: Protocol;
 
-  @Column()
+  @Column({ type: 'varchar', length: 30 })
   name: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 100 })
   address: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'integer', nullable: true })
   pid: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 100, nullable: true })
   poolAddress: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   assets: string;
 
   @ManyToMany(() => Token)
@@ -56,16 +56,16 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @Column('decimal', { precision: 65, scale: 22, default: 0 })
   liquidityValue: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   apy: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   apr: string;
 
   @Column({ type: 'json', nullable: true })
   data: any;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   link: string;
 
   @BeforeInsert()

@@ -25,25 +25,25 @@ export class NFToken extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   })
   protocol: Protocol;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100, nullable: false })
   address: string;
 
-  @Column({ nullable: false })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   name: string;
 
   @Column({ type: 'enum', enum: NF_TOKEN_URI_TYPE })
   uriType: NF_TOKEN_URI_TYPE;
 
-  @Column({ nullable: false })
+  @Column({ type: 'integer', nullable: false })
   tokenId: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   tokenUri: string;
 
   @Column({ type: 'longtext', nullable: true })
   tokenUriData: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   imageOrAnimationUri: string;
 
   @BeforeInsert()

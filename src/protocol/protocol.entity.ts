@@ -13,29 +13,29 @@ export class Protocol extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Network, { nullable: false })
   network: Network;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50, nullable: true })
   name: string;
 
   @OneToOne(() => Token, { nullable: true })
   @JoinColumn()
   token: Token;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   useDex: boolean;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   useFarm: boolean;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   useNFT: boolean;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   useLending: boolean;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   link: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   logoLink: string;
 
   static relations = ['network', 'token'];

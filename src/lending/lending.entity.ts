@@ -31,58 +31,58 @@ export class Lending extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Token, { nullable: false })
   borrowToken: Token;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 100, nullable: true })
   address: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'integer', nullable: true })
   pid: number;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   liquidityAmount: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   liquidityValue: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   supplyAmount: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   supplyValue: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   supplyApy: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   supplyApr: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   borrowAmount: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   borrowValue: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   borrowApy: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   borrowApr: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   reserveAmount: string;
 
-  @Column('decimal', { precision: 65, scale: 22, default: 0 })
+  @Column({ type: 'decimal', precision: 65, scale: 22, default: 0 })
   reserveValue: string;
 
   @Column({ type: 'json', nullable: true })
   data: any;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   collateralFactor: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   reserveFactor: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   link: string;
 
   @BeforeInsert()

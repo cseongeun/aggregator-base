@@ -17,10 +17,10 @@ export class Contract extends IdEntity(EmptyEntity) {
   @ManyToOne(() => Network, { nullable: false })
   network: Network;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100 })
   address: string;
 
-  @Column('longtext')
+  @Column({ type: 'longtext' })
   abi: string;
 
   getABI(): TContractAbi {

@@ -9,9 +9,13 @@ import { INTERACTION_TYPE } from './interaction.constant';
 
 @Entity()
 @Index('idx_interaction_1', ['address'], { unique: false })
-@Index('idx_interaction_2', ['contractAddress', 'address', 'network', 'pid'], {
-  unique: true,
-})
+@Index(
+  'idx_interaction_3',
+  ['contractAddress', 'address', 'network', 'pid', 'referAddress'],
+  {
+    unique: true,
+  },
+)
 export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   @ManyToOne(() => Network, { nullable: false })
   network: Network;
@@ -19,16 +23,16 @@ export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   @Column({ type: 'enum', enum: INTERACTION_TYPE })
   type: INTERACTION_TYPE;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100 })
   contractAddress: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100 })
   address: string;
 
-  @Column({ nullable: true })
-  pid: string;
+  @Column({ type: 'integer', nullable: true })
+  pid: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 100, nullable: true })
   referAddress: string;
 
   static relations = ['network'];

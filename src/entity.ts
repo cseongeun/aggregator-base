@@ -16,8 +16,6 @@ export * from './token/token.entity';
 
 export * from './token-price/token-price.entity';
 
-export * from './event/event.entity';
-
 export * from './interaction/interaction.entity';
 
 export * from './task-stream/task-stream.entity';

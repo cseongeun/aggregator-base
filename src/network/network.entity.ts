@@ -11,13 +11,13 @@ import { NETWORK_CHAIN_ID, NETWORK_CHAIN_TYPE } from './network.constant';
 @Entity()
 @Index('idx_network_1', ['chainType', 'chainId'], { unique: true })
 export class Network extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
-  @Column()
+  @Column({ type: 'varchar', length: 50, nullable: false })
   name: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50, nullable: true })
   subName: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50, nullable: true })
   currencySymbol: string;
 
   @Column({
@@ -32,19 +32,19 @@ export class Network extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   })
   chainId: NETWORK_CHAIN_ID;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100, nullable: true })
   multiCallAddress: string;
 
   @Column({ type: 'json' })
   http: any;
 
-  @Column()
+  @Column({ type: 'integer', nullable: true })
   blockTimeSec: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 500, nullable: true })
   explorerUrl: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 500, nullable: true })
   logoLink: string;
 
   get chainKey(): string {

@@ -10,25 +10,25 @@ export class Task extends TimeEntity(StatusEntity(EmptyEntity)) {
   @PrimaryColumn()
   id: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50, nullable: false })
   cron: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'integer', nullable: true })
   blockNumber: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'integer', nullable: true })
   pid: number;
 
   @Column({ type: 'json', nullable: true })
   data: string;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   panic: boolean;
 
-  @Column({ default: false })
+  @Column({ type: 'bool', default: false })
   active: boolean;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 50, nullable: true })
   latestElapsedSecond: string;
 
   @Column({ type: 'json', nullable: true })

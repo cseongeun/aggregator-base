@@ -16,8 +16,6 @@ export * from './token/token.module';
 
 export * from './token-price/token-price.module';
 
-export * from './event/event.module';
-
 export * from './interaction/interaction.module';
 
 export * from './task-stream/task-stream.module';
