@@ -27,7 +27,7 @@ export class Farm extends IdEntity(TimeEntity(StatusEntity(EmptyEntity))) {
   @ManyToOne(() => Protocol, { nullable: false })
   protocol: Protocol;
 
-  @Column({ type: 'varchar', length: 30 })
+  @Column({ type: 'varchar', length: 50 })
   name: string;
 
   @Column({ type: 'varchar', length: 100 })
