@@ -2,10 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { INTERACTION_TYPE } from './interaction.constant';
 import { Farm } from '../farm/farm.entity';
 import { Token } from '../token/token.entity';
-import {
-  FarmInteractionResponse,
-  TokenInteractionResponse,
-} from './interaction.dto';
 import { IFarmInteraction, ITokenInteraction } from './interaction.interface';
 import { InteractionRepository } from './interaction.repository';
 
@@ -13,12 +9,15 @@ import { InteractionRepository } from './interaction.repository';
 export class InteractionService {
   constructor(public readonly repository: InteractionRepository) {}
 
-  async getTokenInteractions(
-    address: string,
-  ): Promise<TokenInteractionResponse> {
+  async getTokenInteractions(address: string): Promise<Token[]> {
     const interactions = await this.repository
       .createQueryBuilder('interaction')
-      // 이너 조인 (1) interaction.contractAddress = token.address  (2) interaction.network = token.network (3)token.status = true
+      /**
+       * 이너 조인
+       * (1) interaction.contractAddress = token.address
+       * (2) interaction.network = token.network
+       * (3)token.status = true
+       **/
       .innerJoinAndMapOne(
         'interaction.token',
         Token,
@@ -36,25 +35,23 @@ export class InteractionService {
       .andWhere('interaction.address = :address', { address })
       .getMany();
 
-    const tokens = [];
-    const addresses = [];
-
-    (interactions as ITokenInteraction[]).map(({ token }) => {
-      tokens.push(token);
-      addresses.push(token.address);
-    });
-
-    return { tokens, addresses };
+    return (interactions as ITokenInteraction[]).map(({ token }) => token);
   }
 
-  async getFarmInteractions(address: string): Promise<FarmInteractionResponse> {
+  async getFarmInteractions(address: string): Promise<Farm[]> {
     const interactions = await this.repository
       .createQueryBuilder('interaction')
+      /**
+       * 이너 조인
+       * (1) interaction.contractAddress = farm.address
+       * (2) interaction.referPid = farm.pid   OR   interaction.referAddress = farm.poolAddress
+       * (3) farm.status = true
+       */
       .innerJoinAndMapOne(
         'interaction.farm',
         Farm,
         'farm',
-        'interaction.contractAddress = farm.address AND (interaction.referPid = farm.pid or interaction.referAddress = farm.poolAddress) ',
+        'interaction.contractAddress = farm.address AND (interaction.referPid = farm.pid OR interaction.referAddress = farm.poolAddress) AND farm.status = true',
       )
       // 팜 조인
       .leftJoinAndSelect('farm.protocol', 'protocol')
@@ -67,7 +64,6 @@ export class InteractionService {
       .andWhere('interaction.address = :address', { address })
       .getMany();
 
-    const farms = (interactions as IFarmInteraction[]).map(({ farm }) => farm);
-    return { farms };
+    return (interactions as IFarmInteraction[]).map(({ farm }) => farm);
   }
 }

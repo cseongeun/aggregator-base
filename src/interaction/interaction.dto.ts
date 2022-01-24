@@ -4,7 +4,6 @@ import { Lending } from '../lending/lending.entity';
 
 export class TokenInteractionResponse {
   tokens: Token[];
-  addresses: string[];
 }
 
 export class FarmInteractionResponse {
