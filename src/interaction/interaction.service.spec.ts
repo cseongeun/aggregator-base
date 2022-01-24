@@ -2,6 +2,7 @@ import { INestApplication } from '@nestjs/common';
 import { InteractionService } from './interaction.service';
 import { TestModule } from '../extension/testing/test.module';
 import { Token } from '../token/token.entity';
+import { TokenForm } from '../token/token.dto';
 
 describe('InteractionService', () => {
   const testModule = new TestModule();
@@ -21,7 +22,12 @@ describe('InteractionService', () => {
     it('동작 테스트', async () => {
       const address = '0xFDcBF476B286796706e273F86aC51163DA737FA8';
       const interactions = await service.getTokenInteractions(address);
-      console.log(interactions);
+      console.log(
+        interactions.map((token) => {
+          const tt = TokenForm.default(token);
+          console.log(tt);
+        }),
+      );
     });
   });
 
