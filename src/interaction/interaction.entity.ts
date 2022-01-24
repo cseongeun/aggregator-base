@@ -11,7 +11,7 @@ import { INTERACTION_TYPE } from './interaction.constant';
 @Index('idx_interaction_1', ['address'], { unique: false })
 @Index(
   'idx_interaction_2',
-  ['type', 'contractAddress', 'address', 'network', 'pid', 'referAddress'],
+  ['type', 'contractAddress', 'address', 'network', 'referPid', 'referAddress'],
   {
     unique: true,
   },
@@ -30,7 +30,7 @@ export class Interaction extends IdEntity(StatusEntity(EmptyEntity)) {
   address: string;
 
   @Column({ type: 'varchar', length: 100, nullable: false, default: '' })
-  pid: string;
+  referPid: string;
 
   @Column({ type: 'varchar', length: 100, nullable: false, default: '' })
   referAddress: string;
