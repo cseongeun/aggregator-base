@@ -7,9 +7,10 @@ import {
   TypeOrmOptionsFactory,
 } from '@nestjs/typeorm';
 import { typeOrmConfig } from '../database.base';
-import { NetworkModule, TokenModule, TokenPriceModule } from '../../module';
+import { NetworkModule } from '../../module';
+import { InteractionModule } from '../..';
 
-export class MysqlConfigService implements TypeOrmOptionsFactory {
+export class MysqlConfig implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       ...typeOrmConfig(
@@ -20,6 +21,7 @@ export class MysqlConfigService implements TypeOrmOptionsFactory {
         process.env.MYSQL_PASSWORD,
         process.env.MYSQL_DATABASE,
       ),
+      logging: true,
       type: 'mysql',
     };
   }
@@ -31,10 +33,10 @@ export class TestModule {
   async createTestModule(): Promise<INestApplication> {
     this.module = await Test.createTestingModule({
       imports: [
-        TypeOrmModule.forRootAsync({ useClass: MysqlConfigService }),
+        TypeOrmModule.forRootAsync({ useClass: MysqlConfig }),
         NetworkModule,
-        TokenModule,
-        TokenPriceModule,
+
+        InteractionModule,
       ],
     }).compile();
 
