@@ -1,6 +1,6 @@
 {
   "name": "@seongeun/aggregator-base",
-  "version": "0.0.84",
+  "version": "0.0.85",
   "description": "Aggregator base",
   "engines": {
     "node": ">=14.0.0"
