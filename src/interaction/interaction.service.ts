@@ -63,16 +63,12 @@ export class InteractionService {
       // 팜 조인
       .leftJoinAndSelect('farm.protocol', 'protocol')
       .leftJoinAndSelect('protocol.network', 'network')
+
       .leftJoinAndSelect('farm.stakeTokens', 'stakeTokens')
-      .leftJoinAndSelect(
-        'farm.stakeTokens.tokenPrice',
-        'stakeTokens.tokenPrice',
-      )
+      .leftJoinAndSelect('stakeTokens.tokenPrice', 'stakeTokens.tokenPrice')
+
       .leftJoinAndSelect('farm.rewardTokens', 'rewardTokens')
-      .leftJoinAndSelect(
-        'farm.rewardTokens.tokenPrice',
-        'rewardTokens.tokenPrice',
-      )
+      .leftJoinAndSelect('rewardTokens.tokenPrice', 'rewardTokens.tokenPrice')
 
       // 쿼리
       .where('interaction.type = :type', { type: INTERACTION_TYPE.FARM })
