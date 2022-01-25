@@ -28,8 +28,12 @@ export class InteractionService {
       .leftJoinAndSelect('token.network', 'network', 'network.status = true')
       .leftJoinAndSelect('token.tokenPrice', 'tokenPrice')
       .leftJoinAndSelect('token.pair0', 'pair0')
+      .leftJoinAndSelect('token.pair0.tokenPrice', 'pair0.tokenPrice')
       .leftJoinAndSelect('token.pair1', 'pair1')
+      .leftJoinAndSelect('token.pair1.tokenPrice', 'pair1.tokenPrice')
       .leftJoinAndSelect('token.wrapped', 'wrapped')
+      .leftJoinAndSelect('token.wrapped.tokenPrice', 'wrapped.tokenPrice')
+
       // 쿼리
       .where('interaction.type = :type', { type: INTERACTION_TYPE.TOKEN })
       .andWhere('interaction.address = :address', { address })
@@ -57,7 +61,15 @@ export class InteractionService {
       .leftJoinAndSelect('farm.protocol', 'protocol')
       .leftJoinAndSelect('protocol.network', 'network')
       .leftJoinAndSelect('farm.stakeTokens', 'stakeTokens')
+      .leftJoinAndSelect(
+        'farm.stakeTokens.tokenPrice',
+        'stakeTokens.tokenPrice',
+      )
       .leftJoinAndSelect('farm.rewardTokens', 'rewardTokens')
+      .leftJoinAndSelect(
+        'farm.rewardTokens.tokenPrice',
+        'rewardTokens.tokenPrice',
+      )
 
       // 쿼리
       .where('interaction.type = :type', { type: INTERACTION_TYPE.FARM })
